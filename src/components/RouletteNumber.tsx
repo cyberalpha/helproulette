@@ -21,8 +21,14 @@ const RouletteNumber = ({
 
   // Determinar el color del número
   const getNumberColor = () => {
-    if (number === 0) return "number-button-green";
-    return number % 2 === 0 ? "number-button-black" : "number-button-red";
+    if (number === 0) return "bg-roulette-green border-2 border-white";
+    
+    // Números rojos según la imagen: 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36
+    const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+    
+    return redNumbers.includes(number) 
+      ? "bg-roulette-red border-2 border-white" 
+      : "bg-roulette-black border-2 border-white";
   };
 
   useEffect(() => {
@@ -37,17 +43,17 @@ const RouletteNumber = ({
     <div
       onClick={() => onClick(number)}
       className={cn(
-        "number-button",
+        "flex items-center justify-center cursor-pointer transition-all duration-300",
         getNumberColor(),
-        number === 0 ? "rounded-full w-14 h-14" : "rounded-full w-12 h-12",
-        highlighted && "highlighted",
+        number === 0 ? "aspect-[3/4] col-span-3" : "aspect-square",
+        highlighted && "ring-2 ring-yellow-400 ring-opacity-100",
         animate && "animate-pulse-light",
         isLastResult && "ring-2 ring-white",
         className
       )}
       aria-label={`Número ${number}`}
     >
-      <span className={cn("text-lg font-medium", animate && "scale-110 transition-transform")}>
+      <span className={cn("text-lg font-bold text-white", animate && "scale-110 transition-transform")}>
         {number}
       </span>
     </div>

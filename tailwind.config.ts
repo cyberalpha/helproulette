@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,6 +21,9 @@ export default {
 		extend: {
 			fontFamily: {
 				inter: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+			},
+			gridTemplateColumns: {
+				'13': 'repeat(13, minmax(0, 1fr))',
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -68,8 +72,8 @@ export default {
 				roulette: {
 					red: '#DC2626',
 					black: '#171717',
-					green: '#059669',
-					board: '#0F172A',
+					green: '#047857',
+					board: '#047857',
 					gold: '#F59E0B',
 					highlight: 'rgba(255, 255, 255, 0.15)'
 				}

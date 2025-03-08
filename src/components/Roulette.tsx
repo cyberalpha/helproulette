@@ -62,42 +62,9 @@ const Roulette = () => {
     });
   };
 
-  // Generar la cuadrícula de números para la ruleta
-  const renderRouletteGrid = () => {
-    const numbers = [];
-    
-    // Añadir el cero
-    numbers.push(
-      <div key="zero" className="col-span-3 flex justify-center items-center mb-4">
-        <RouletteNumber 
-          number={0} 
-          onClick={handleNumberClick} 
-          highlighted={prediction?.highlightedNumbers.includes(0)}
-          isLastResult={lastNumber === 0}
-        />
-      </div>
-    );
-    
-    // Añadir el resto de números (1-36)
-    for (let i = 1; i <= 36; i++) {
-      numbers.push(
-        <RouletteNumber 
-          key={i} 
-          number={i} 
-          onClick={handleNumberClick} 
-          highlighted={prediction?.highlightedNumbers.includes(i)}
-          isLastResult={lastNumber === i}
-          className="transform transition-all duration-500"
-        />
-      );
-    }
-    
-    return numbers;
-  };
-
   return (
     <div className="w-full flex flex-col items-center space-y-8 px-4 md:px-8">
-      <div className={`roulette-board glass-panel p-6 w-full max-w-4xl rounded-2xl transition-all duration-500 ${animateBoard ? 'scale-in' : ''}`}>
+      <div className={`bg-roulette-green p-6 w-full max-w-4xl rounded-md border-4 border-white transition-all duration-500 ${animateBoard ? 'scale-in' : ''}`}>
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white">Ruleta</h2>
           <button 
@@ -108,12 +75,98 @@ const Roulette = () => {
           </button>
         </div>
         
-        {/* Cuadrícula de números de la ruleta */}
-        <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-9 lg:grid-cols-12 gap-3 mb-8">
-          {renderRouletteGrid()}
+        {/* Tablero de ruleta - Estilo recreado según la imagen */}
+        <div className="border-4 border-white p-2 mb-6">
+          {/* Fila 0 especial */}
+          <div className="grid grid-cols-13 gap-1 mb-1">
+            <div className="col-span-1 bg-roulette-green border-2 border-white flex items-center justify-center">
+              <RouletteNumber 
+                number={0} 
+                onClick={handleNumberClick} 
+                highlighted={prediction?.highlightedNumbers.includes(0)}
+                isLastResult={lastNumber === 0}
+                className="h-full w-full border-0"
+              />
+            </div>
+            
+            {/* Números en 3 filas como en la imagen */}
+            <div className="col-span-12">
+              <div className="grid grid-cols-12 gap-1">
+                {/* Fila superior (3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36) */}
+                {[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36].map(num => (
+                  <RouletteNumber 
+                    key={`top-${num}`} 
+                    number={num} 
+                    onClick={handleNumberClick} 
+                    highlighted={prediction?.highlightedNumbers.includes(num)}
+                    isLastResult={lastNumber === num}
+                  />
+                ))}
+              </div>
+              <div className="grid grid-cols-12 gap-1 my-1">
+                {/* Fila media (2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35) */}
+                {[2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35].map(num => (
+                  <RouletteNumber 
+                    key={`mid-${num}`} 
+                    number={num} 
+                    onClick={handleNumberClick} 
+                    highlighted={prediction?.highlightedNumbers.includes(num)}
+                    isLastResult={lastNumber === num}
+                  />
+                ))}
+              </div>
+              <div className="grid grid-cols-12 gap-1">
+                {/* Fila inferior (1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34) */}
+                {[1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34].map(num => (
+                  <RouletteNumber 
+                    key={`bottom-${num}`} 
+                    number={num} 
+                    onClick={handleNumberClick} 
+                    highlighted={prediction?.highlightedNumbers.includes(num)}
+                    isLastResult={lastNumber === num}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Docenas */}
+          <div className="grid grid-cols-3 gap-1 mb-1">
+            <div className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold">
+              1st12
+            </div>
+            <div className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold">
+              2nd12
+            </div>
+            <div className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold">
+              3rd12
+            </div>
+          </div>
+          
+          {/* Opciones inferiores */}
+          <div className="grid grid-cols-6 gap-1">
+            <div className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold">
+              1to18
+            </div>
+            <div className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold">
+              EVEN
+            </div>
+            <div className="bg-roulette-red border-2 border-white p-2 flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full bg-roulette-red"></div>
+            </div>
+            <div className="bg-roulette-black border-2 border-white p-2 flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full bg-roulette-black"></div>
+            </div>
+            <div className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold">
+              ODD
+            </div>
+            <div className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold">
+              19to36
+            </div>
+          </div>
         </div>
         
-        {/* Opciones de apuesta (rojo/negro, par/impar, etc.) */}
+        {/* Opciones de apuesta (ya existentes) */}
         <BettingOptions 
           onSelectOption={handleOptionSelect} 
           highlightedOptions={{
@@ -137,9 +190,9 @@ const Roulette = () => {
                   className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm ${
                     num === 0 
                       ? 'bg-roulette-green' 
-                      : num % 2 === 0 
-                        ? 'bg-roulette-black' 
-                        : 'bg-roulette-red'
+                      : [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(num)
+                        ? 'bg-roulette-red' 
+                        : 'bg-roulette-black'
                   }`}
                 >
                   {num}

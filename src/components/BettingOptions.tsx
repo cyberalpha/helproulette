@@ -18,10 +18,10 @@ const BettingOptions = ({
   const options = [
     { type: 'color', value: 'rojo', label: 'Rojo', className: 'bg-roulette-red text-white' },
     { type: 'color', value: 'negro', label: 'Negro', className: 'bg-roulette-black text-white' },
-    { type: 'parity', value: 'par', label: 'Par', className: 'bg-gray-800 text-white' },
-    { type: 'parity', value: 'impar', label: 'Impar', className: 'bg-gray-800 text-white' },
-    { type: 'half', value: '1-18', label: '1-18', className: 'bg-indigo-600 text-white' },
-    { type: 'half', value: '19-36', label: '19-36', className: 'bg-indigo-600 text-white' },
+    { type: 'parity', value: 'par', label: 'Par', className: 'bg-roulette-green border border-white text-white' },
+    { type: 'parity', value: 'impar', label: 'Impar', className: 'bg-roulette-green border border-white text-white' },
+    { type: 'half', value: '1-18', label: '1-18', className: 'bg-roulette-green border border-white text-white' },
+    { type: 'half', value: '19-36', label: '19-36', className: 'bg-roulette-green border border-white text-white' },
   ];
 
   const isHighlighted = (type: string, value: string) => {
@@ -32,7 +32,7 @@ const BettingOptions = ({
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-6 gap-3 w-full">
+    <div className="grid grid-cols-2 md:grid-cols-6 gap-3 w-full mt-6">
       {options.map((option) => (
         <button
           key={`${option.type}-${option.value}`}
