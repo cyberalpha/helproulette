@@ -75,7 +75,7 @@ const Roulette = () => {
           </button>
         </div>
         
-        {/* Tablero de ruleta - Estilo recreado según la imagen */}
+        {/* Tablero de ruleta - Mejorado para coincidir con la imagen de referencia */}
         <div className="grid grid-cols-13 gap-1 border-4 border-white p-2 mb-6">
           {/* Panel principal */}
           <div className="col-span-12">
@@ -132,62 +132,62 @@ const Roulette = () => {
               </div>
             </div>
             
-            {/* Docenas horizontales */}
+            {/* Docenas horizontales - Ajustadas para coincidir con el tamaño de los números */}
             <div className="grid grid-cols-3 gap-1 mb-1">
               <div 
-                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80"
+                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80 h-12 flex items-center justify-center"
                 onClick={() => handleOptionSelect('dozen', '1st12')}
               >
                 1st12
               </div>
               <div 
-                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80"
+                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80 h-12 flex items-center justify-center"
                 onClick={() => handleOptionSelect('dozen', '2nd12')}
               >
                 2nd12
               </div>
               <div 
-                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80"
+                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80 h-12 flex items-center justify-center"
                 onClick={() => handleOptionSelect('dozen', '3rd12')}
               >
                 3rd12
               </div>
             </div>
             
-            {/* Opciones inferiores */}
+            {/* Opciones inferiores - Altura ajustada */}
             <div className="grid grid-cols-6 gap-1">
               <div 
-                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80"
+                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80 h-12 flex items-center justify-center"
                 onClick={() => handleOptionSelect('half', '1to18')}
               >
                 1to18
               </div>
               <div 
-                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80"
+                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80 h-12 flex items-center justify-center"
                 onClick={() => handleOptionSelect('parity', 'even')}
               >
                 EVEN
               </div>
               <div 
-                className="bg-roulette-red border-2 border-white p-2 flex items-center justify-center cursor-pointer hover:bg-roulette-red/80"
+                className="bg-roulette-red border-2 border-white p-2 flex items-center justify-center cursor-pointer hover:bg-roulette-red/80 h-12"
                 onClick={() => handleOptionSelect('color', 'rojo')}
               >
                 <div className="w-6 h-6 rounded-full bg-roulette-red"></div>
               </div>
               <div 
-                className="bg-roulette-black border-2 border-white p-2 flex items-center justify-center cursor-pointer hover:bg-roulette-black/80"
+                className="bg-roulette-black border-2 border-white p-2 flex items-center justify-center cursor-pointer hover:bg-roulette-black/80 h-12"
                 onClick={() => handleOptionSelect('color', 'negro')}
               >
                 <div className="w-6 h-6 rounded-full bg-roulette-black"></div>
               </div>
               <div 
-                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80"
+                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80 h-12 flex items-center justify-center"
                 onClick={() => handleOptionSelect('parity', 'odd')}
               >
                 ODD
               </div>
               <div 
-                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80"
+                className="bg-roulette-green border-2 border-white text-white p-2 text-center font-bold cursor-pointer hover:bg-roulette-green/80 h-12 flex items-center justify-center"
                 onClick={() => handleOptionSelect('half', '19to36')}
               >
                 19to36
@@ -195,22 +195,22 @@ const Roulette = () => {
             </div>
           </div>
           
-          {/* Docenas verticales (a la derecha) */}
+          {/* Docenas verticales (a la derecha) - Ajustadas para hacerlas más visibles */}
           <div className="col-span-1 flex flex-col gap-1">
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex-1 flex items-center justify-center font-bold text-xs rotate-90 md:rotate-0 md:text-sm cursor-pointer hover:bg-roulette-green/80"
+              className="bg-roulette-green border-2 border-white text-white flex-1 flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80"
               onClick={() => handleOptionSelect('column', '1st_column')}
             >
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex-1 flex items-center justify-center font-bold text-xs rotate-90 md:rotate-0 md:text-sm cursor-pointer hover:bg-roulette-green/80"
+              className="bg-roulette-green border-2 border-white text-white flex-1 flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80"
               onClick={() => handleOptionSelect('column', '2nd_column')}
             >
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex-1 flex items-center justify-center font-bold text-xs rotate-90 md:rotate-0 md:text-sm cursor-pointer hover:bg-roulette-green/80"
+              className="bg-roulette-green border-2 border-white text-white flex-1 flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80"
               onClick={() => handleOptionSelect('column', '3rd_column')}
             >
               2to1
@@ -229,10 +229,10 @@ const Roulette = () => {
         />
       </div>
       
-      {/* Historial y predicciones */}
-      <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-5 gap-6">
+      {/* Historial y predicciones - Reordenado para dar más espacio */}
+      <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Historial de números */}
-        <div className="glass-panel p-6 md:col-span-2">
+        <div className="glass-panel p-6">
           <h2 className="text-xl font-semibold mb-4 text-white/90">Historial</h2>
           <div className="flex flex-wrap gap-2">
             {history.length > 0 ? (
@@ -257,7 +257,7 @@ const Roulette = () => {
         </div>
         
         {/* Panel de predicciones */}
-        <div className="md:col-span-3">
+        <div>
           {prediction && (
             <PredictionDisplay 
               prediction={prediction} 
