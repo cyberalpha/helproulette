@@ -1,10 +1,13 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,114 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-lg;
+  }
+  
+  .number-button {
+    @apply relative flex items-center justify-center transition-all duration-300 
+           hover:scale-[1.03] active:scale-[0.97] cursor-pointer shadow-md;
+  }
+  
+  .number-button-red {
+    @apply bg-roulette-red text-white;
+  }
+  
+  .number-button-black {
+    @apply bg-roulette-black text-white;
+  }
+  
+  .number-button-green {
+    @apply bg-roulette-green text-white;
+  }
+  
+  .prediction-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium animate-fade-in;
+  }
+  
+  .highlighted {
+    @apply ring-2 ring-roulette-gold ring-opacity-100 animate-glow;
+  }
+}
+
+.bounce-enter {
+  animation: bounce-in 0.5s ease-out;
+}
+
+.spin-enter {
+  animation: spin-in 0.8s ease-out;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin-in {
+  0% {
+    transform: rotate(-10deg) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.roulette-board {
+  background-color: theme('colors.roulette.board');
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.2) 0%, transparent 50%);
+}
+
+.roulette-number {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.roulette-number.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+.highlight-pulse {
+  animation: highlight-pulse 2s infinite;
+}
+
+@keyframes highlight-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(245, 158, 11, 0.5), 0 0 10px rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.8), 0 0 20px rgba(245, 158, 11, 0.5);
   }
 }
