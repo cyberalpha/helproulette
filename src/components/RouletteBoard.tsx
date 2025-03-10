@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import RouletteNumber from "./RouletteNumber";
 import { cn } from "@/lib/utils";
@@ -173,22 +172,25 @@ const RouletteBoard = ({
           </div>
           <div 
             className={cn(
-              "col-span-1 bg-gradient-to-br from-roulette-red to-red-700 border border-white/60 cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-              isPrediction('color', 'rojo') ? "ring-2 ring-white animate-pulse-light" : ""
-            )}
-            onClick={() => onOptionSelect('color', 'rojo')}
-          >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-roulette-red to-red-700"></div>
-          </div>
-          <div 
-            className={cn(
-              "col-span-1 bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60 cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-              isPrediction('color', 'negro') ? "ring-2 ring-white animate-pulse-light" : ""
-            )}
-            onClick={() => onOptionSelect('color', 'negro')}
-          >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-roulette-black to-gray-800"></div>
-          </div>
+            "col-span-1 bg-gradient-to-br from-roulette-red to-red-700 border border-white/60 cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center gap-2 h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+            isPrediction('color', 'rojo') ? "ring-2 ring-white animate-pulse-light" : ""
+          )}
+          onClick={() => onOptionSelect('color', 'rojo')}
+        >
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-red to-red-700"></div>
+          <span className="text-white font-bold">ROJO</span>
+        </div>
+        
+        <div 
+          className={cn(
+            "col-span-1 bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60 cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center gap-2 h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+            isPrediction('color', 'negro') ? "ring-2 ring-white animate-pulse-light" : ""
+          )}
+          onClick={() => onOptionSelect('color', 'negro')}
+        >
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-black to-gray-800"></div>
+          <span className="text-white font-bold">NEGRO</span>
+        </div>
           <div 
             className={cn(
               "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
