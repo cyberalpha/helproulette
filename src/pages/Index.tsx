@@ -1,44 +1,10 @@
 
-import { useEffect, useState } from "react";
-import Roulette from "@/components/Roulette";
 import { useEntranceAnimation } from "@/lib/animations";
+import Roulette from "@/components/Roulette";
 
 const Index = () => {
   const headerVisible = useEntranceAnimation(300);
   const contentVisible = useEntranceAnimation(600);
-  const [orientation, setOrientation] = useState("landscape");
-
-  useEffect(() => {
-    const updateOrientation = () => {
-      if (window.innerWidth < window.innerHeight) {
-        setOrientation("portrait");
-      } else {
-        setOrientation("landscape");
-      }
-    };
-
-    updateOrientation();
-    window.addEventListener("resize", updateOrientation);
-    return () => window.removeEventListener("resize", updateOrientation);
-  }, []);
-
-  if (orientation === "portrait") {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4 py-10">
-        <div className="glass-panel p-6 text-center">
-          <div className="text-white text-xl font-semibold mb-4">
-            Por favor, gire su dispositivo
-          </div>
-          <div className="text-gray-300">
-            Esta aplicación funciona mejor en modo horizontal
-          </div>
-          <div className="text-7xl animate-pulse-light mt-4">
-            📱↻
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center px-4 py-10">
