@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import RouletteNumber from "./RouletteNumber";
 import { cn } from "@/lib/utils";
@@ -78,7 +77,7 @@ const RouletteBoard = ({
             className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
             onClick={() => onOptionSelect('dozen', '2nd12')}
           >
-            2nd12
+            Segunda Docena
           </div>
           <div 
             className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
@@ -129,7 +128,6 @@ const RouletteBoard = ({
       </div>
       
       <div className="col-span-1 flex flex-col">
-        {/* Three 2to1 buttons that align with rows */}
         <div 
           className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mb-1"
           onClick={() => onOptionSelect('column', '3rd_column')}
