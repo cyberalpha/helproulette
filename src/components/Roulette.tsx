@@ -67,9 +67,9 @@ const Roulette = () => {
           </button>
         </div>
         
-        <div className="grid grid-cols-13 gap-1 border-4 border-white p-2 mb-6">
+        <div className="grid grid-cols-13 gap-0.5 border-4 border-white p-2 mb-6">
           <div className="col-span-12">
-            <div className="grid grid-cols-13 gap-1 mb-1">
+            <div className="grid grid-cols-13 gap-0.5 mb-0.5">
               <div className="col-span-1 bg-roulette-green border-2 border-white flex items-center justify-center">
                 <RouletteNumber 
                   number={0} 
@@ -81,7 +81,7 @@ const Roulette = () => {
               </div>
               
               <div className="col-span-12">
-                <div className="grid grid-cols-12 gap-1">
+                <div className="grid grid-cols-12 gap-0.5">
                   {[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36].map(num => (
                     <RouletteNumber 
                       key={`top-${num}`} 
@@ -92,7 +92,7 @@ const Roulette = () => {
                     />
                   ))}
                 </div>
-                <div className="grid grid-cols-12 gap-1 my-1">
+                <div className="grid grid-cols-12 gap-0.5 my-0.5">
                   {[2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35].map(num => (
                     <RouletteNumber 
                       key={`mid-${num}`} 
@@ -103,7 +103,7 @@ const Roulette = () => {
                     />
                   ))}
                 </div>
-                <div className="grid grid-cols-12 gap-1">
+                <div className="grid grid-cols-12 gap-0.5">
                   {[1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34].map(num => (
                     <RouletteNumber 
                       key={`bottom-${num}`} 
@@ -117,7 +117,7 @@ const Roulette = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-3 gap-1 mb-1">
+            <div className="grid grid-cols-3 gap-0.5 mb-0.5">
               <div 
                 className="bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
                 onClick={() => handleOptionSelect('dozen', '1st12')}
@@ -138,7 +138,7 @@ const Roulette = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-6 gap-1">
+            <div className="grid grid-cols-6 gap-0.5">
               <div 
                 className="bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
                 onClick={() => handleOptionSelect('half', '1to18')}
@@ -186,13 +186,13 @@ const Roulette = () => {
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[42px] h-[42px] mt-1"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[42px] h-[42px] mt-0.5"
               onClick={() => handleOptionSelect('column', '2nd_column')}
             >
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[42px] h-[42px] mt-1"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[42px] h-[42px] mt-0.5"
               onClick={() => handleOptionSelect('column', '3rd_column')}
             >
               2to1
