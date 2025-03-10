@@ -44,8 +44,9 @@ const RouletteNumber = ({
       onClick={() => onClick(number)}
       className={cn(
         "flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md",
+        "hover:scale-[1.03] active:scale-[0.97]", // Added hover and active effects
         getNumberColor(),
-        number === 0 ? "w-[48px] h-[148px] rounded-xl" : "w-[48px] h-[48px] rounded-xl", // Added rounded-xl
+        number === 0 ? "w-[48px] h-[148px] rounded-xl" : "w-[48px] h-[48px] rounded-xl",
         highlighted && "ring-2 ring-yellow-400 ring-opacity-100",
         animate && "animate-pulse-light",
         isLastResult && "ring-2 ring-white",
