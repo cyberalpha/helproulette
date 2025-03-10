@@ -173,7 +173,7 @@ const RouletteBoard = ({
             onClick={() => onOptionSelect('color', 'rojo')}
           >
             <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-red to-red-700"></div>
-            <span className="text-white font-bold text-center">ROJO</span>
+            <span className="text-white font-bold text-center">RED</span>
           </div>
           
           <div 
@@ -184,7 +184,7 @@ const RouletteBoard = ({
             onClick={() => onOptionSelect('color', 'negro')}
           >
             <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-black to-gray-800"></div>
-            <span className="text-white font-bold text-center">NEGRO</span>
+            <span className="text-white font-bold text-center">BLACK</span>
           </div>
           <div 
             className={cn(
