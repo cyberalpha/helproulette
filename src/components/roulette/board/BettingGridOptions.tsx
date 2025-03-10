@@ -33,7 +33,7 @@ const BettingGridOptions = ({
   };
 
   return (
-    <div className="grid grid-cols-6 gap-1 mt-1">
+    <div className="grid grid-cols-6 gap-1">
       <BettingOption
         label="1to18"
         type="half"

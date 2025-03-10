@@ -67,7 +67,7 @@ const RouletteBoard = ({
       </div>
       
       {/* Betting options */}
-      <div className="col-span-14">
+      <div className="col-span-14 mt-1">
         <BettingGridOptions 
           highlightedPredictions={highlightedPredictions}
           onOptionSelect={onOptionSelect}
