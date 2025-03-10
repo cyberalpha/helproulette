@@ -1,4 +1,3 @@
-
 import { toast } from "@/components/ui/use-toast";
 
 // Tipo de opciones seleccionadas
@@ -15,7 +14,7 @@ export const checkWinnings = (
   number: number, 
   selectedOptions: SelectedOptions,
   setSelectedOptions: (options: SelectedOptions) => void
-) => {
+): number => {
   let wins = 0;
   const messages: string[] = [];
   
@@ -101,6 +100,8 @@ export const checkWinnings = (
     dozen: null,
     column: null,
   });
+  
+  return wins;
 };
 
 // Manejar selección de opciones

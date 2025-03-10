@@ -8,11 +8,12 @@ interface ResetActions {
   setHistory: React.Dispatch<React.SetStateAction<number[]>>;
   setPrediction: (pred: any) => void;
   setSelectedOptions: (options: SelectedOptions) => void;
+  setWinnerPhotos?: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 // Reiniciar el juego
 export const handleReset = (actions: ResetActions) => {
-  const { setLastNumber, setHistory, setPrediction, setSelectedOptions } = actions;
+  const { setLastNumber, setHistory, setPrediction, setSelectedOptions, setWinnerPhotos } = actions;
   
   // Reiniciar el algoritmo
   resetAlgorithm();
@@ -28,6 +29,11 @@ export const handleReset = (actions: ResetActions) => {
     dozen: null,
     column: null,
   });
+  
+  // Reiniciar fotos de ganadores si existe
+  if (setWinnerPhotos) {
+    setWinnerPhotos([]);
+  }
   
   // Notificar
   toast({
