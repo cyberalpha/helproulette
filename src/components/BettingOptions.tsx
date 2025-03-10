@@ -69,7 +69,7 @@ const BettingOptions = ({
           onClick={() => onSelectOption(option.type, option.value)}
           className={cn(
             "rounded-xl py-3 px-4 transition-all duration-300 shadow-md",
-            "hover:scale-[1.03] active:scale-[0.97]",
+            "hover:scale-[1.03] active:scale-[0.97] animate-pulse-light",
             option.className,
             isHighlighted(option.type, option.value) && "ring-2 ring-roulette-gold animate-glow"
           )}
