@@ -67,7 +67,7 @@ const Roulette = () => {
         </div>
         
         <div className="grid grid-cols-14 gap-1 border-4 border-white p-4 mb-6">
-          <div className="col-span-1 flex items-start">
+          <div className="col-span-1 flex flex-col justify-end">
             <RouletteNumber 
               number={0} 
               onClick={handleNumberClick} 
