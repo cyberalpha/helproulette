@@ -14,7 +14,7 @@ export interface GameState {
 interface GameActions {
   setLastNumber: (num: number | null) => void;
   setPrediction: (pred: PredictionResult | null) => void;
-  setHistory: (history: number[]) => void;
+  setHistory: React.Dispatch<React.SetStateAction<number[]>>;
   setAnimateBoard: (animate: boolean) => void;
   setSelectedOptions: (options: SelectedOptions) => void;
 }
@@ -33,7 +33,7 @@ export const handleNumberClick = (
   
   // Actualizar el estado
   setLastNumber(number);
-  setHistory((prev: number[]) => [...prev, number]);
+  setHistory(prev => [...prev, number]);
   
   // Procesar el número con el algoritmo
   const newPrediction = processNumber(number);
