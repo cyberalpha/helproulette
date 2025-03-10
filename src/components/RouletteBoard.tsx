@@ -129,6 +129,7 @@ const RouletteBoard = ({
       </div>
       
       <div className="col-span-1 flex flex-col justify-between">
+        {/* Three 2to1 buttons that align with rows */}
         <div 
           className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
           onClick={() => onOptionSelect('column', '3rd_column')}
@@ -136,7 +137,7 @@ const RouletteBoard = ({
           2to1
         </div>
         <div 
-          className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mt-[48px]"
+          className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
           onClick={() => onOptionSelect('column', '2nd_column')}
         >
           2to1
