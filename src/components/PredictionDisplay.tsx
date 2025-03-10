@@ -10,6 +10,15 @@ interface PredictionDisplayProps {
 const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) => {
   const { predictions, statistics } = prediction;
 
+  // Función para determinar el color de fondo de los plenos
+  const getNumberBackground = (number: number) => {
+    if (number === 0) return "bg-gradient-to-br from-roulette-green to-green-700";
+    const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+    return redNumbers.includes(number)
+      ? "bg-gradient-to-br from-roulette-red to-red-700"
+      : "bg-gradient-to-br from-roulette-black to-gray-800";
+  };
+
   // Función para crear badges de predicción
   const renderPredictionBadges = (title: string, items: number[], className?: string) => {
     if (!items.length) return null;
@@ -22,7 +31,10 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
             <span
               key={`${title}-${item}`}
               className={cn(
-                "prediction-badge bg-black/30 backdrop-blur-sm",
+                "prediction-badge",
+                title === "Plenos recomendados" 
+                  ? cn(getNumberBackground(item), "border border-white/20")
+                  : "bg-gradient-to-br from-orange-400/40 to-purple-500/40 backdrop-blur-sm border border-white/20",
                 className
               )}
             >
@@ -96,7 +108,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
         
         {/* Predicciones específicas */}
         <div className="space-y-4">
-          {renderPredictionBadges("Plenos recomendados", predictions.pleno, "bg-purple-900/70 text-white")}
+          {renderPredictionBadges("Plenos recomendados", predictions.pleno)}
           {renderPredictionBadges("Docenas sugeridas", predictions.dozens)}
           {renderPredictionBadges("Líneas sugeridas", predictions.lines)}
           {renderPredictionBadges("Columnas sugeridas", predictions.columns)}
