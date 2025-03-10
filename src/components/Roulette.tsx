@@ -68,13 +68,13 @@ const Roulette = () => {
         </div>
         
         <div className="grid grid-cols-14 gap-1 border-4 border-white p-4 mb-6">
-          <div className="col-span-1 flex justify-center items-start">
+          <div className="col-span-1 flex justify-center items-center">
             <RouletteNumber 
               number={0} 
               onClick={handleNumberClick} 
               highlighted={prediction?.highlightedNumbers.includes(0)}
               isLastResult={lastNumber === 0}
-              className="h-[129px]"
+              className="h-[147px] w-full mr-1"
             />
           </div>
           
@@ -115,19 +115,19 @@ const Roulette = () => {
             
             <div className="grid grid-cols-3 gap-1 mt-4">
               <div 
-                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('dozen', '1st12')}
               >
                 1st12
               </div>
               <div 
-                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('dozen', '2nd12')}
               >
                 2nd12
               </div>
               <div 
-                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('dozen', '3rd12')}
               >
                 3rd12
@@ -136,37 +136,37 @@ const Roulette = () => {
             
             <div className="grid grid-cols-6 gap-1 mt-1">
               <div 
-                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('half', '1to18')}
               >
                 1to18
               </div>
               <div 
-                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('parity', 'even')}
               >
                 EVEN
               </div>
               <div 
-                className="col-span-1 bg-roulette-red border-2 border-white cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-red border-2 border-white cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('color', 'rojo')}
               >
-                <div className="w-6 h-6 rounded-full bg-roulette-red"></div>
+                <div className="w-8 h-8 rounded-full bg-roulette-red"></div>
               </div>
               <div 
-                className="col-span-1 bg-roulette-black border-2 border-white cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-black border-2 border-white cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('color', 'negro')}
               >
-                <div className="w-6 h-6 rounded-full bg-roulette-black"></div>
+                <div className="w-8 h-8 rounded-full bg-roulette-black"></div>
               </div>
               <div 
-                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('parity', 'odd')}
               >
                 ODD
               </div>
               <div 
-                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
+                className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
                 onClick={() => handleOptionSelect('half', '19to36')}
               >
                 19to36
@@ -174,21 +174,21 @@ const Roulette = () => {
             </div>
           </div>
           
-          <div className="col-span-1 flex flex-col">
+          <div className="col-span-1 flex flex-col justify-between">
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[42px] h-[42px] mb-1"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
               onClick={() => handleOptionSelect('column', '3rd_column')}
             >
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[42px] h-[42px] mb-1"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
               onClick={() => handleOptionSelect('column', '2nd_column')}
             >
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[42px] h-[42px]"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
               onClick={() => handleOptionSelect('column', '1st_column')}
             >
               2to1

@@ -45,7 +45,7 @@ const RouletteNumber = ({
       className={cn(
         "flex items-center justify-center cursor-pointer transition-all duration-300",
         getNumberColor(),
-        number === 0 ? "aspect-[1/3]" : "w-[42px] h-[42px]",
+        number === 0 ? "aspect-[1/3] flex flex-col justify-center" : "w-[48px] h-[48px]",
         highlighted && "ring-2 ring-yellow-400 ring-opacity-100",
         animate && "animate-pulse-light",
         isLastResult && "ring-2 ring-white",
@@ -53,7 +53,7 @@ const RouletteNumber = ({
       )}
       aria-label={`Número ${number}`}
     >
-      <span className={cn("text-lg font-bold text-white", animate && "scale-110 transition-transform")}>
+      <span className={cn("text-xl font-bold text-white", animate && "scale-110 transition-transform")}>
         {number}
       </span>
     </div>
