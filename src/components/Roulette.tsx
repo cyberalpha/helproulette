@@ -40,7 +40,6 @@ const Roulette = () => {
     const newPrediction = processNumber(number);
     setPrediction(newPrediction);
     
-    // Check if user won based on selected options
     checkWinnings(number);
     
     toast({
@@ -66,7 +65,6 @@ const Roulette = () => {
     let wins = 0;
     const messages: string[] = [];
     
-    // Check color
     if (selectedOptions.color) {
       const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
       const isRed = redNumbers.includes(number);
@@ -78,7 +76,6 @@ const Roulette = () => {
       }
     }
     
-    // Check parity
     if (selectedOptions.parity && number !== 0) {
       const isEven = number % 2 === 0;
       const userSelectedEven = selectedOptions.parity === "par";
@@ -89,7 +86,6 @@ const Roulette = () => {
       }
     }
     
-    // Check half
     if (selectedOptions.half && number !== 0) {
       const isFirstHalf = number >= 1 && number <= 18;
       const userSelectedFirstHalf = selectedOptions.half === "1-18";
@@ -100,7 +96,6 @@ const Roulette = () => {
       }
     }
     
-    // Check dozen
     if (selectedOptions.dozen && number !== 0) {
       const dozenMap: Record<string, [number, number]> = {
         "1st12": [1, 12],
@@ -115,7 +110,6 @@ const Roulette = () => {
       }
     }
     
-    // Check column
     if (selectedOptions.column && number !== 0) {
       const firstColumn = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
       const secondColumn = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
@@ -146,7 +140,6 @@ const Roulette = () => {
       });
     }
     
-    // Reset selections after the spin
     setSelectedOptions({
       color: null,
       parity: null,
@@ -188,6 +181,16 @@ const Roulette = () => {
     });
   };
 
+  const getHighlightedPredictions = () => {
+    if (!prediction) return null;
+    
+    return {
+      color: prediction.predictions.color,
+      parity: prediction.predictions.parity,
+      half: prediction.predictions.half
+    };
+  };
+
   return (
     <div className="w-full flex flex-col items-center space-y-8 px-4 md:px-8">
       <div className="bg-roulette-green p-6 w-full max-w-4xl rounded-md border-4 border-white transition-all duration-500">
@@ -209,6 +212,7 @@ const Roulette = () => {
             onOptionSelect={handleOptionSelect}
             animateBoard={animateBoard}
             recommendedDozens={getRecommendedDozens()}
+            highlightedPredictions={getHighlightedPredictions()}
           />
         )}
         

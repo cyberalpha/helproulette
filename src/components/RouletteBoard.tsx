@@ -3,6 +3,12 @@ import { useState } from "react";
 import RouletteNumber from "./RouletteNumber";
 import { cn } from "@/lib/utils";
 
+interface HighlightedPredictions {
+  color: string | null;
+  parity: string | null;
+  half: string | null;
+}
+
 interface RouletteBoardProps {
   lastNumber: number | null;
   highlightedNumbers: number[];
@@ -10,6 +16,7 @@ interface RouletteBoardProps {
   onOptionSelect: (type: string, value: string) => void;
   animateBoard: boolean;
   recommendedDozens?: string[];
+  highlightedPredictions: HighlightedPredictions | null;
 }
 
 const RouletteBoard = ({
@@ -18,7 +25,8 @@ const RouletteBoard = ({
   onNumberClick,
   onOptionSelect,
   animateBoard,
-  recommendedDozens = []
+  recommendedDozens = [],
+  highlightedPredictions
 }: RouletteBoardProps) => {
   const dozenMap: Record<string, string> = {
     '1st12': '1st12',
@@ -28,6 +36,22 @@ const RouletteBoard = ({
 
   const isDozenRecommended = (dozen: string) => {
     return recommendedDozens.includes(dozen);
+  };
+
+  // Check if the option is recommended by the prediction algorithm
+  const isPrediction = (type: string, value: string) => {
+    if (!highlightedPredictions) return false;
+    
+    switch (type) {
+      case 'color':
+        return highlightedPredictions.color === value;
+      case 'parity':
+        return highlightedPredictions.parity === value;
+      case 'half':
+        return highlightedPredictions.half === value;
+      default:
+        return false;
+    }
   };
 
   return (
@@ -83,7 +107,7 @@ const RouletteBoard = ({
           <div 
             className={cn(
               "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-              isDozenRecommended('1st12') ? "ring-2 ring-yellow-400" : ""
+              isDozenRecommended('1st12') ? "ring-2 ring-white animate-pulse-light" : ""
             )}
             onClick={() => onOptionSelect('dozen', '1st12')}
           >
@@ -92,7 +116,7 @@ const RouletteBoard = ({
           <div 
             className={cn(
               "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-              isDozenRecommended('2nd12') ? "ring-2 ring-yellow-400" : ""
+              isDozenRecommended('2nd12') ? "ring-2 ring-white animate-pulse-light" : ""
             )}
             onClick={() => onOptionSelect('dozen', '2nd12')}
           >
@@ -101,7 +125,7 @@ const RouletteBoard = ({
           <div 
             className={cn(
               "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-              isDozenRecommended('3rd12') ? "ring-2 ring-yellow-400" : ""
+              isDozenRecommended('3rd12') ? "ring-2 ring-white animate-pulse-light" : ""
             )}
             onClick={() => onOptionSelect('dozen', '3rd12')}
           >
@@ -111,37 +135,55 @@ const RouletteBoard = ({
         
         <div className="grid grid-cols-6 gap-1 mt-1">
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isPrediction('half', '1-18') ? "ring-2 ring-white animate-pulse-light" : ""
+            )}
             onClick={() => onOptionSelect('half', '1-18')}
           >
             1to18
           </div>
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isPrediction('parity', 'par') ? "ring-2 ring-white animate-pulse-light" : ""
+            )}
             onClick={() => onOptionSelect('parity', 'par')}
           >
             EVEN
           </div>
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-red to-red-700 border border-white/60 cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-red to-red-700 border border-white/60 cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isPrediction('color', 'rojo') ? "ring-2 ring-white animate-pulse-light" : ""
+            )}
             onClick={() => onOptionSelect('color', 'rojo')}
           >
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-roulette-red to-red-700"></div>
           </div>
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60 cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60 cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isPrediction('color', 'negro') ? "ring-2 ring-white animate-pulse-light" : ""
+            )}
             onClick={() => onOptionSelect('color', 'negro')}
           >
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-roulette-black to-gray-800"></div>
           </div>
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isPrediction('parity', 'impar') ? "ring-2 ring-white animate-pulse-light" : ""
+            )}
             onClick={() => onOptionSelect('parity', 'impar')}
           >
             ODD
           </div>
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isPrediction('half', '19-36') ? "ring-2 ring-white animate-pulse-light" : ""
+            )}
             onClick={() => onOptionSelect('half', '19-36')}
           >
             19to36
