@@ -14,6 +14,7 @@ const Roulette = () => {
   const [prediction, setPrediction] = useState<PredictionResult | null>(null);
   const [history, setHistory] = useState<number[]>([]);
   const [animateBoard, setAnimateBoard] = useState(false);
+  const [winnerPhotos, setWinnerPhotos] = useState<string[]>([]);
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({
     color: null,
     parity: null,
@@ -34,7 +35,8 @@ const Roulette = () => {
     prediction,
     history,
     animateBoard,
-    selectedOptions
+    selectedOptions,
+    winnerPhotos
   };
 
   const gameActions = {
@@ -42,7 +44,8 @@ const Roulette = () => {
     setPrediction,
     setHistory,
     setAnimateBoard,
-    setSelectedOptions
+    setSelectedOptions,
+    setWinnerPhotos
   };
 
   // Manejadores de eventos
@@ -59,7 +62,8 @@ const Roulette = () => {
       setLastNumber,
       setHistory,
       setPrediction,
-      setSelectedOptions
+      setSelectedOptions,
+      setWinnerPhotos
     });
   };
 
