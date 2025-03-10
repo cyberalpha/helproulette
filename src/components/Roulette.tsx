@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import RouletteNumber from "./RouletteNumber";
@@ -68,8 +67,7 @@ const Roulette = () => {
         </div>
         
         <div className="grid grid-cols-14 gap-1 border-4 border-white p-4 mb-6">
-          {/* Zero column - adjusted to be aligned with the numbers */}
-          <div className="col-span-1 flex items-center">
+          <div className="col-span-1 flex items-start">
             <RouletteNumber 
               number={0} 
               onClick={handleNumberClick} 
@@ -79,7 +77,6 @@ const Roulette = () => {
             />
           </div>
           
-          {/* Main number grid */}
           <div className="col-span-12">
             <div className="grid grid-cols-12 gap-1 mb-1">
               {[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36].map(num => (
@@ -92,6 +89,7 @@ const Roulette = () => {
                 />
               ))}
             </div>
+            
             <div className="grid grid-cols-12 gap-1 mb-1">
               {[2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35].map(num => (
                 <RouletteNumber 
@@ -176,7 +174,6 @@ const Roulette = () => {
             </div>
           </div>
           
-          {/* 2to1 column */}
           <div className="col-span-1 flex flex-col justify-between">
             <div 
               className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
