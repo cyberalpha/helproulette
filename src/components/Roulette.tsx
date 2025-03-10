@@ -67,8 +67,8 @@ const Roulette = () => {
           </button>
         </div>
         
-        <div className="grid grid-cols-13 gap-0.5 border-4 border-white p-2 mb-6">
-          <div className="col-span-1">
+        <div className="grid grid-cols-13 gap-2 border-4 border-white p-2 mb-6">
+          <div className="col-span-1 mr-2">
             <RouletteNumber 
               number={0} 
               onClick={handleNumberClick} 
@@ -113,7 +113,7 @@ const Roulette = () => {
               ))}
             </div>
             
-            <div className="grid grid-cols-12 gap-0.5 mt-0.5">
+            <div className="grid grid-cols-12 gap-0.5 mt-2">
               <div 
                 className="col-span-4 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
                 onClick={() => handleOptionSelect('dozen', '1st12')}
@@ -174,7 +174,7 @@ const Roulette = () => {
             </div>
           </div>
           
-          <div className="col-span-1">
+          <div className="col-span-1 ml-2">
             <div 
               className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[42px] h-[42px]"
               onClick={() => handleOptionSelect('column', '1st_column')}
