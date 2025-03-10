@@ -39,16 +39,12 @@ const RouletteBoard = ({
     return recommendedDozens.includes(dozen);
   };
 
-  // Column recommendation check based on the lines prediction
   const isColumnRecommended = (column: string) => {
     if (!recommendedColumns || recommendedColumns.length === 0) return false;
     
-    // Log for debugging
     console.log("Recommended columns/lines:", recommendedColumns);
     console.log("Checking column/line:", column);
     
-    // Map column UI names to their line numbers from the algorithm
-    // As per clarification: bottom 2to1 = line 1, middle 2to1 = line 2, top 2to1 = line 3
     if (column === '1st_column' && recommendedColumns.includes(1)) return true;
     if (column === '2nd_column' && recommendedColumns.includes(2)) return true;
     if (column === '3rd_column' && recommendedColumns.includes(3)) return true;
@@ -56,7 +52,6 @@ const RouletteBoard = ({
     return false;
   };
 
-  // Check if the option is recommended by the prediction algorithm
   const isPrediction = (type: string, value: string) => {
     if (!highlightedPredictions) return false;
     
@@ -172,25 +167,25 @@ const RouletteBoard = ({
           </div>
           <div 
             className={cn(
-            "col-span-1 bg-gradient-to-br from-roulette-red to-red-700 border border-white/60 cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center gap-2 h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-            isPrediction('color', 'rojo') ? "ring-2 ring-white animate-pulse-light" : ""
-          )}
-          onClick={() => onOptionSelect('color', 'rojo')}
-        >
-          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-red to-red-700"></div>
-          <span className="text-white font-bold">ROJO</span>
-        </div>
-        
-        <div 
-          className={cn(
-            "col-span-1 bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60 cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center gap-2 h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-            isPrediction('color', 'negro') ? "ring-2 ring-white animate-pulse-light" : ""
-          )}
-          onClick={() => onOptionSelect('color', 'negro')}
-        >
-          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-black to-gray-800"></div>
-          <span className="text-white font-bold">NEGRO</span>
-        </div>
+              "col-span-1 bg-gradient-to-br from-roulette-red to-red-700 border border-white/60 cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center gap-2 h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all text-center",
+              isPrediction('color', 'rojo') ? "ring-2 ring-white animate-pulse-light" : ""
+            )}
+            onClick={() => onOptionSelect('color', 'rojo')}
+          >
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-red to-red-700"></div>
+            <span className="text-white font-bold text-center">ROJO</span>
+          </div>
+          
+          <div 
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60 cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center gap-2 h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all text-center",
+              isPrediction('color', 'negro') ? "ring-2 ring-white animate-pulse-light" : ""
+            )}
+            onClick={() => onOptionSelect('color', 'negro')}
+          >
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-black to-gray-800"></div>
+            <span className="text-white font-bold text-center">NEGRO</span>
+          </div>
           <div 
             className={cn(
               "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
