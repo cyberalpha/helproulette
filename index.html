@@ -30,13 +30,13 @@
         justify-content: center;
       }
 
-      /* Ensure both app and sandbox are in landscape */
+      /* Base landscape orientation for all devices */
       html {
         width: 100vw;
         height: 100vh;
       }
 
-      /* Force landscape for mobile devices */
+      /* Force landscape orientation for mobile devices */
       @media screen and (orientation: portrait) {
         html {
           transform: rotate(-90deg);
@@ -50,13 +50,23 @@
         }
       }
 
-      /* Force landscape for the sandbox emulation */
-      .gpt-engineer-frame, .sandbox-frame {
+      /* Specific rules for sandbox emulation frame */
+      .gpt-engineer-frame, 
+      .sandbox-frame {
         width: 100% !important;
         height: 100% !important;
         max-height: 100vh !important;
         transform: rotate(0deg) !important;
         aspect-ratio: 16/9 !important;
+        position: relative !important;
+        display: block !important;
+      }
+      
+      /* If there's a device wrapper in the sandbox, ensure it's also rotated */
+      .device-wrapper {
+        transform: rotate(0deg) !important;
+        width: 100% !important;
+        height: 100% !important;
       }
 
       @media only screen and (max-device-width: 896px) {
