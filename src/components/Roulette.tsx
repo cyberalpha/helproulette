@@ -183,7 +183,7 @@ const Roulette = () => {
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mt-[48px]"
               onClick={() => handleOptionSelect('column', '2nd_column')}
             >
               2to1
