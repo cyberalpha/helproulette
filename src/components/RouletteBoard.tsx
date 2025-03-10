@@ -58,7 +58,7 @@ const RouletteBoard = ({
         onOptionSelect={onOptionSelect}
       />
       
-      {/* Dozen options */}
+      {/* Dozen options - now in a separate row */}
       <div className="col-span-12 mt-1">
         <DozenOptions 
           recommendedDozens={recommendedDozens}
@@ -66,7 +66,7 @@ const RouletteBoard = ({
         />
       </div>
       
-      {/* Betting options */}
+      {/* Betting options - placed below dozen options */}
       <div className="col-span-14 mt-1">
         <BettingGridOptions 
           highlightedPredictions={highlightedPredictions}
