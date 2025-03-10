@@ -21,14 +21,14 @@ const RouletteNumber = ({
 
   // Determinar el color del número
   const getNumberColor = () => {
-    if (number === 0) return "bg-gradient-to-br from-roulette-green to-green-700 border-2 border-white";
+    if (number === 0) return "bg-gradient-to-br from-roulette-green to-green-700 border border-white/60";
     
     // Números rojos según la imagen: 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36
     const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
     
     return redNumbers.includes(number) 
-      ? "bg-gradient-to-br from-roulette-red to-red-700 border-2 border-white" 
-      : "bg-gradient-to-br from-roulette-black to-gray-800 border-2 border-white";
+      ? "bg-gradient-to-br from-roulette-red to-red-700 border border-white/60" 
+      : "bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60";
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const RouletteNumber = ({
       onClick={() => onClick(number)}
       className={cn(
         "flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md",
-        "hover:scale-[1.03] active:scale-[0.97]", // Added hover and active effects
+        "hover:scale-[1.03] active:scale-[0.97]", 
         getNumberColor(),
         number === 0 ? "w-[48px] h-[148px] rounded-xl" : "w-[48px] h-[48px] rounded-xl",
         highlighted && "ring-2 ring-yellow-400 ring-opacity-100",
