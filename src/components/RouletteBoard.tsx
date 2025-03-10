@@ -40,9 +40,13 @@ const RouletteBoard = ({
     return recommendedDozens.includes(dozen);
   };
 
-  // Determine if a column is recommended based on the algorithm's column predictions
+  // Enhanced column recommendation check
   const isColumnRecommended = (column: string) => {
-    if (recommendedColumns.length === 0) return false;
+    if (!recommendedColumns || recommendedColumns.length === 0) return false;
+    
+    // Log for debugging
+    console.log("Recommended columns:", recommendedColumns);
+    console.log("Checking column:", column);
     
     // Map column names to their numerical values from the algorithm
     if (column === '1st_column' && recommendedColumns.includes(1)) return true;
@@ -209,7 +213,7 @@ const RouletteBoard = ({
         <div 
           className={cn(
             "bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mb-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-            isColumnRecommended('3rd_column') ? "ring-2 ring-white animate-pulse-light" : ""
+            isColumnRecommended('3rd_column') ? "ring-2 ring-white animate-pulse-light bg-green-600" : ""
           )}
           onClick={() => onOptionSelect('column', '3rd_column')}
         >
@@ -218,7 +222,7 @@ const RouletteBoard = ({
         <div 
           className={cn(
             "bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mb-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-            isColumnRecommended('2nd_column') ? "ring-2 ring-white animate-pulse-light" : ""
+            isColumnRecommended('2nd_column') ? "ring-2 ring-white animate-pulse-light bg-green-600" : ""
           )}
           onClick={() => onOptionSelect('column', '2nd_column')}
         >
@@ -227,7 +231,7 @@ const RouletteBoard = ({
         <div 
           className={cn(
             "bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-            isColumnRecommended('1st_column') ? "ring-2 ring-white animate-pulse-light" : ""
+            isColumnRecommended('1st_column') ? "ring-2 ring-white animate-pulse-light bg-green-600" : ""
           )}
           onClick={() => onOptionSelect('column', '1st_column')}
         >
