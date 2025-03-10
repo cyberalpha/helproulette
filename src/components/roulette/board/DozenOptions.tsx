@@ -13,7 +13,7 @@ const DozenOptions = ({ recommendedDozens, onOptionSelect }: DozenOptionsProps) 
   };
 
   return (
-    <div className="grid grid-cols-3 gap-1 mt-4">
+    <div className="grid grid-cols-3 gap-1 col-span-3">
       <BettingOption
         label="1st12"
         type="dozen"
