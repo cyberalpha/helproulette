@@ -22,6 +22,10 @@ const config: CapacitorConfig = {
   android: {
     backgroundColor: "#121212",
     screenOrientation: "landscape"
+  },
+  ios: {
+    backgroundColor: "#121212",
+    orientation: ["landscape"]
   }
 };
 
