@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,18 +54,18 @@
       .sandbox-frame {
         width: 100% !important;
         height: 100% !important;
-        max-height: 100vh !important;
-        transform: rotate(0deg) !important;
-        aspect-ratio: 16/9 !important;
+        transform: rotate(-90deg) !important;
+        transform-origin: center center !important;
         position: relative !important;
         display: block !important;
       }
       
       /* If there's a device wrapper in the sandbox, ensure it's also rotated */
       .device-wrapper {
-        transform: rotate(0deg) !important;
+        transform: rotate(-90deg) !important;
         width: 100% !important;
         height: 100% !important;
+        transform-origin: center center !important;
       }
 
       @media only screen and (max-device-width: 896px) {
