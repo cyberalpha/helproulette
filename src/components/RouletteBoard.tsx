@@ -38,6 +38,22 @@ const RouletteBoard = ({
     return recommendedDozens.includes(dozen);
   };
 
+  // Determine if a column is recommended based on highlighted numbers
+  const isColumnRecommended = (column: string) => {
+    const firstColumn = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
+    const secondColumn = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
+    const thirdColumn = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
+    
+    let columnNumbers: number[] = [];
+    
+    if (column === '1st_column') columnNumbers = firstColumn;
+    if (column === '2nd_column') columnNumbers = secondColumn;
+    if (column === '3rd_column') columnNumbers = thirdColumn;
+    
+    // Check if the highlighted numbers include numbers in this column
+    return columnNumbers.some(num => highlightedNumbers.includes(num));
+  };
+
   // Check if the option is recommended by the prediction algorithm
   const isPrediction = (type: string, value: string) => {
     if (!highlightedPredictions) return false;
@@ -193,19 +209,28 @@ const RouletteBoard = ({
       
       <div className="col-span-1 flex flex-col">
         <div 
-          className="bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mb-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+          className={cn(
+            "bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mb-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+            isColumnRecommended('3rd_column') ? "ring-2 ring-white animate-pulse-light" : ""
+          )}
           onClick={() => onOptionSelect('column', '3rd_column')}
         >
           2to1
         </div>
         <div 
-          className="bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mb-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+          className={cn(
+            "bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 mb-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+            isColumnRecommended('2nd_column') ? "ring-2 ring-white animate-pulse-light" : ""
+          )}
           onClick={() => onOptionSelect('column', '2nd_column')}
         >
           2to1
         </div>
         <div 
-          className="bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+          className={cn(
+            "bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+            isColumnRecommended('1st_column') ? "ring-2 ring-white animate-pulse-light" : ""
+          )}
           onClick={() => onOptionSelect('column', '1st_column')}
         >
           2to1
