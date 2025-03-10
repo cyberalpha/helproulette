@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import PredictionDisplay from "./PredictionDisplay";
@@ -62,10 +61,9 @@ const Roulette = () => {
   };
 
   const getRecommendedColumns = (): number[] => {
-    if (!prediction || !prediction.predictions.columns.length) return [];
-    // Log the recommended columns for debugging
-    console.log("Recommended columns in algorithm:", prediction.predictions.columns);
-    return prediction.predictions.columns;
+    if (!prediction || !prediction.predictions.lines.length) return [];
+    console.log("Recommended lines in algorithm:", prediction.predictions.lines);
+    return prediction.predictions.lines;
   };
 
   const checkWinnings = (number: number) => {

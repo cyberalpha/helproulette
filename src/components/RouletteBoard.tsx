@@ -40,15 +40,16 @@ const RouletteBoard = ({
     return recommendedDozens.includes(dozen);
   };
 
-  // Enhanced column recommendation check
+  // Column recommendation check based on the lines prediction
   const isColumnRecommended = (column: string) => {
     if (!recommendedColumns || recommendedColumns.length === 0) return false;
     
     // Log for debugging
-    console.log("Recommended columns:", recommendedColumns);
-    console.log("Checking column:", column);
+    console.log("Recommended columns/lines:", recommendedColumns);
+    console.log("Checking column/line:", column);
     
-    // Map column names to their numerical values from the algorithm
+    // Map column UI names to their line numbers from the algorithm
+    // As per clarification: bottom 2to1 = line 1, middle 2to1 = line 2, top 2to1 = line 3
     if (column === '1st_column' && recommendedColumns.includes(1)) return true;
     if (column === '2nd_column' && recommendedColumns.includes(2)) return true;
     if (column === '3rd_column' && recommendedColumns.includes(3)) return true;
