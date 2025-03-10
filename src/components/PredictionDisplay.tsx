@@ -11,7 +11,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
   const { predictions, statistics } = prediction;
 
   // Función para crear badges de predicción
-  const renderPredictionBadges = (title: string, items: number[], className?: string, animate: boolean = false) => {
+  const renderPredictionBadges = (title: string, items: number[], className?: string) => {
     if (!items.length) return null;
     
     return (
@@ -22,9 +22,8 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
             <span
               key={`${title}-${item}`}
               className={cn(
-                "prediction-badge bg-black/30 backdrop-blur-sm",
-                className,
-                animate && "animate-pulse-light"
+                "prediction-badge bg-black/30 backdrop-blur-sm animate-pulse-light",
+                className
               )}
             >
               {item}
@@ -55,7 +54,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
           <h3 className="text-sm font-medium text-gray-300 mb-2">Sugerencias</h3>
           <ul className="space-y-1">
             {predictions.suggestions.map((suggestion, index) => (
-              <li key={index} className="text-sm text-white/80">{suggestion}</li>
+              <li key={index} className="text-sm text-white/80 animate-pulse-light">{suggestion}</li>
             ))}
           </ul>
         </div>
@@ -97,10 +96,10 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
         
         {/* Predicciones específicas */}
         <div className="space-y-4">
-          {renderPredictionBadges("Plenos recomendados", predictions.pleno, "bg-purple-900/70 text-white", true)}
-          {renderPredictionBadges("Docenas sugeridas", predictions.dozens, undefined, true)}
-          {renderPredictionBadges("Líneas sugeridas", predictions.lines, undefined, true)}
-          {renderPredictionBadges("Columnas sugeridas", predictions.columns, undefined, true)}
+          {renderPredictionBadges("Plenos recomendados", predictions.pleno, "bg-purple-900/70 text-white")}
+          {renderPredictionBadges("Docenas sugeridas", predictions.dozens)}
+          {renderPredictionBadges("Líneas sugeridas", predictions.lines)}
+          {renderPredictionBadges("Columnas sugeridas", predictions.columns)}
         </div>
       </div>
     </div>
