@@ -5,7 +5,7 @@ import { SelectedOptions } from "./BettingHandler";
 
 interface ResetActions {
   setLastNumber: (num: number | null) => void;
-  setHistory: (history: number[]) => void;
+  setHistory: React.Dispatch<React.SetStateAction<number[]>>;
   setPrediction: (pred: any) => void;
   setSelectedOptions: (options: SelectedOptions) => void;
 }
