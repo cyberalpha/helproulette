@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import PredictionDisplay from "./PredictionDisplay";
@@ -64,12 +63,6 @@ const Roulette = () => {
   const getRecommendedColumns = (): number[] => {
     if (!prediction || !prediction.predictions.columns.length) return [];
     return prediction.predictions.columns;
-  };
-  
-  // Nuevo método para obtener las líneas recomendadas
-  const getRecommendedLines = (): number[] => {
-    if (!prediction || !prediction.predictions.lines.length) return [];
-    return prediction.predictions.lines;
   };
 
   const checkWinnings = (number: number) => {
@@ -225,7 +218,6 @@ const Roulette = () => {
             recommendedDozens={getRecommendedDozens()}
             highlightedPredictions={getHighlightedPredictions()}
             recommendedColumns={getRecommendedColumns()}
-            recommendedLines={getRecommendedLines()} // Pasamos las líneas recomendadas
           />
         )}
       </div>

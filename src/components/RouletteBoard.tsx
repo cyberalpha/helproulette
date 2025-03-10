@@ -18,7 +18,6 @@ interface RouletteBoardProps {
   recommendedDozens?: string[];
   highlightedPredictions: HighlightedPredictions | null;
   recommendedColumns?: number[];
-  recommendedLines?: number[]; // Añadimos las líneas recomendadas
 }
 
 const RouletteBoard = ({
@@ -29,8 +28,7 @@ const RouletteBoard = ({
   animateBoard,
   recommendedDozens = [],
   highlightedPredictions,
-  recommendedColumns = [],
-  recommendedLines = [] // Valor por defecto para las líneas recomendadas
+  recommendedColumns = []
 }: RouletteBoardProps) => {
   const dozenMap: Record<string, string> = {
     '1st12': '1st12',
@@ -42,27 +40,19 @@ const RouletteBoard = ({
     return recommendedDozens.includes(dozen);
   };
 
-  // Determinar si una columna es recomendada basada en las predicciones de columnas del algoritmo
+  // Determine if a column is recommended based on the algorithm's column predictions
   const isColumnRecommended = (column: string) => {
     if (recommendedColumns.length === 0) return false;
     
-    // Mapeo de nombres de columnas a sus valores numéricos del algoritmo
+    // Map column names to their numerical values from the algorithm
     if (column === '1st_column' && recommendedColumns.includes(1)) return true;
     if (column === '2nd_column' && recommendedColumns.includes(2)) return true;
     if (column === '3rd_column' && recommendedColumns.includes(3)) return true;
     
     return false;
   };
-  
-  // Función para determinar si una línea es recomendada por el algoritmo
-  const isLineRecommended = (lineIndex: number): boolean => {
-    // lineIndex debería ser 0 (primera), 1 (segunda) o 2 (tercera) línea
-    // recommendedLines contiene valores 1, 2, 3 que corresponden a las líneas
-    const lineNumber = lineIndex + 1; // Convertir índice 0-based a 1-based
-    return recommendedLines.includes(lineNumber);
-  };
 
-  // Verificar si la opción es recomendada por el algoritmo de predicción
+  // Check if the option is recommended by the prediction algorithm
   const isPrediction = (type: string, value: string) => {
     if (!highlightedPredictions) return false;
     
@@ -92,10 +82,7 @@ const RouletteBoard = ({
       </div>
       
       <div className="col-span-12">
-        <div className={cn(
-          "grid grid-cols-12 gap-1 mb-1",
-          isLineRecommended(2) ? "ring-2 ring-white animate-pulse-light" : ""
-        )}>
+        <div className="grid grid-cols-12 gap-1 mb-1">
           {[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36].map(num => (
             <RouletteNumber 
               key={`top-${num}`} 
@@ -107,10 +94,7 @@ const RouletteBoard = ({
           ))}
         </div>
         
-        <div className={cn(
-          "grid grid-cols-12 gap-1 mb-1", 
-          isLineRecommended(1) ? "ring-2 ring-white animate-pulse-light" : ""
-        )}>
+        <div className="grid grid-cols-12 gap-1 mb-1">
           {[2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35].map(num => (
             <RouletteNumber 
               key={`mid-${num}`} 
@@ -121,10 +105,7 @@ const RouletteBoard = ({
             />
           ))}
         </div>
-        <div className={cn(
-          "grid grid-cols-12 gap-1",
-          isLineRecommended(0) ? "ring-2 ring-white animate-pulse-light" : ""
-        )}>
+        <div className="grid grid-cols-12 gap-1">
           {[1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34].map(num => (
             <RouletteNumber 
               key={`bottom-${num}`} 
