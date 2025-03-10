@@ -22,7 +22,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
             <span
               key={`${title}-${item}`}
               className={cn(
-                "prediction-badge bg-black/30 backdrop-blur-sm animate-pulse-light",
+                "prediction-badge bg-black/30 backdrop-blur-sm",
                 className
               )}
             >
@@ -54,7 +54,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
           <h3 className="text-sm font-medium text-gray-300 mb-2">Sugerencias</h3>
           <ul className="space-y-1">
             {predictions.suggestions.map((suggestion, index) => (
-              <li key={index} className="text-sm text-white/80 animate-pulse-light">{suggestion}</li>
+              <li key={index} className="text-sm text-white/80">{suggestion}</li>
             ))}
           </ul>
         </div>
@@ -67,7 +67,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
             <div className="bg-black/20 p-3 rounded-lg backdrop-blur-sm">
               <h3 className="text-sm font-medium text-gray-300 mb-1">Color</h3>
               <p className={cn(
-                "font-medium animate-pulse-light",
+                "font-medium",
                 predictions.color === "rojo" ? "text-red-500" : "text-gray-200"
               )}>
                 {predictions.color.toUpperCase()}
@@ -78,7 +78,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
           {predictions.parity && (
             <div className="bg-black/20 p-3 rounded-lg backdrop-blur-sm">
               <h3 className="text-sm font-medium text-gray-300 mb-1">Paridad</h3>
-              <p className="font-medium text-white/90 animate-pulse-light">
+              <p className="font-medium text-white/90">
                 {predictions.parity.toUpperCase()}
               </p>
             </div>
@@ -87,7 +87,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
           {predictions.half && (
             <div className="bg-black/20 p-3 rounded-lg backdrop-blur-sm">
               <h3 className="text-sm font-medium text-gray-300 mb-1">Mitad</h3>
-              <p className="font-medium text-white/90 animate-pulse-light">
+              <p className="font-medium text-white/90">
                 {predictions.half}
               </p>
             </div>
