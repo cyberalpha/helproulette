@@ -178,21 +178,21 @@ const Roulette = () => {
             </div>
           </div>
           
-          <div className="col-span-1 flex flex-col justify-between">
+          <div className="col-span-1 flex flex-col gap-0">
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[40px] h-[40px] aspect-square"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[40px] h-[40px]"
               onClick={() => handleOptionSelect('column', '1st_column')}
             >
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[40px] h-[40px] aspect-square"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[40px] h-[40px] mt-1"
               onClick={() => handleOptionSelect('column', '2nd_column')}
             >
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[40px] h-[40px] aspect-square"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 w-[40px] h-[40px] mt-1"
               onClick={() => handleOptionSelect('column', '3rd_column')}
             >
               2to1
