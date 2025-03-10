@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import RouletteNumber from "./RouletteNumber";
 import { cn } from "@/lib/utils";
@@ -173,10 +172,7 @@ const RouletteBoard = ({
             )}
             onClick={() => onOptionSelect('color', 'rojo')}
           >
-            <div className="inline-flex items-center justify-center">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-red to-red-700 mr-2"></div>
-              <span>RED</span>
-            </div>
+            RED
           </div>
           
           <div 
@@ -186,10 +182,7 @@ const RouletteBoard = ({
             )}
             onClick={() => onOptionSelect('color', 'negro')}
           >
-            <div className="inline-flex items-center justify-center">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-black to-gray-800 mr-2"></div>
-              <span>BLACK</span>
-            </div>
+            BLACK
           </div>
           <div 
             className={cn(
@@ -246,4 +239,3 @@ const RouletteBoard = ({
 };
 
 export default RouletteBoard;
-
