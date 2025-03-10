@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
-import BettingOptions from "./BettingOptions";
 import PredictionDisplay from "./PredictionDisplay";
 import RouletteBoard from "./RouletteBoard";
 import RouletteHistory from "./RouletteHistory";
@@ -215,15 +214,6 @@ const Roulette = () => {
             highlightedPredictions={getHighlightedPredictions()}
           />
         )}
-        
-        <BettingOptions 
-          onSelectOption={handleOptionSelect} 
-          highlightedOptions={{
-            color: prediction?.predictions.color || null,
-            parity: prediction?.predictions.parity || null,
-            half: prediction?.predictions.half || null
-          }}
-        />
       </div>
       
       <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
