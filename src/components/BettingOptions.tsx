@@ -16,12 +16,42 @@ const BettingOptions = ({
 }: BettingOptionsProps) => {
   // Opciones de apuesta
   const options = [
-    { type: 'color', value: 'rojo', label: 'Rojo', className: 'bg-roulette-red text-white' },
-    { type: 'color', value: 'negro', label: 'Negro', className: 'bg-roulette-black text-white' },
-    { type: 'parity', value: 'par', label: 'EVEN', className: 'bg-roulette-green border border-white text-white' },
-    { type: 'parity', value: 'impar', label: 'ODD', className: 'bg-roulette-green border border-white text-white' },
-    { type: 'half', value: '1-18', label: '1-18', className: 'bg-roulette-green border border-white text-white' },
-    { type: 'half', value: '19-36', label: '19-36', className: 'bg-roulette-green border border-white text-white' },
+    { 
+      type: 'color', 
+      value: 'rojo', 
+      label: 'Rojo', 
+      className: 'bg-gradient-to-br from-roulette-red to-red-700 text-white' 
+    },
+    { 
+      type: 'color', 
+      value: 'negro', 
+      label: 'Negro', 
+      className: 'bg-gradient-to-br from-roulette-black to-gray-800 text-white' 
+    },
+    { 
+      type: 'parity', 
+      value: 'par', 
+      label: 'EVEN', 
+      className: 'bg-gradient-to-br from-roulette-green to-green-700 border border-white/20 text-white' 
+    },
+    { 
+      type: 'parity', 
+      value: 'impar', 
+      label: 'ODD', 
+      className: 'bg-gradient-to-br from-roulette-green to-green-700 border border-white/20 text-white' 
+    },
+    { 
+      type: 'half', 
+      value: '1-18', 
+      label: '1-18', 
+      className: 'bg-gradient-to-br from-roulette-green to-green-700 border border-white/20 text-white' 
+    },
+    { 
+      type: 'half', 
+      value: '19-36', 
+      label: '19-36', 
+      className: 'bg-gradient-to-br from-roulette-green to-green-700 border border-white/20 text-white' 
+    },
   ];
 
   const isHighlighted = (type: string, value: string) => {
@@ -38,7 +68,7 @@ const BettingOptions = ({
           key={`${option.type}-${option.value}`}
           onClick={() => onSelectOption(option.type, option.value)}
           className={cn(
-            "rounded-lg py-2 px-4 transition-all duration-300",
+            "rounded-xl py-3 px-4 transition-all duration-300 shadow-md",
             "hover:scale-[1.03] active:scale-[0.97]",
             option.className,
             isHighlighted(option.type, option.value) && "ring-2 ring-roulette-gold animate-glow"
