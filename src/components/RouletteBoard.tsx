@@ -77,7 +77,7 @@ const RouletteBoard = ({
             className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
             onClick={() => onOptionSelect('dozen', '2nd12')}
           >
-            Segunda Docena
+            2nd12
           </div>
           <div 
             className="col-span-1 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px]"
