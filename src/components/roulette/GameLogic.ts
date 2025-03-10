@@ -33,7 +33,7 @@ export const handleNumberClick = (
   
   // Actualizar el estado
   setLastNumber(number);
-  setHistory(prev => [...prev, number]);
+  setHistory((prev: number[]) => [...prev, number]);
   
   // Procesar el número con el algoritmo
   const newPrediction = processNumber(number);
