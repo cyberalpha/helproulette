@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import RouletteNumber from "./RouletteNumber";
@@ -67,7 +68,7 @@ const Roulette = () => {
         </div>
         
         <div className="grid grid-cols-14 gap-1 border-4 border-white p-4 mb-6">
-          <div className="col-span-1 flex items-center">
+          <div className="col-span-1 flex items-center justify-center">
             <RouletteNumber 
               number={0} 
               onClick={handleNumberClick} 
