@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import RouletteNumber from "./RouletteNumber";
 import { cn } from "@/lib/utils";
@@ -167,27 +168,27 @@ const RouletteBoard = ({
           </div>
           <div 
             className={cn(
-              "col-span-1 bg-gradient-to-br from-roulette-red to-red-700 border border-white/60 cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              "col-span-1 bg-gradient-to-br from-roulette-red to-red-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-red/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
               isPrediction('color', 'rojo') ? "ring-2 ring-white animate-pulse-light" : ""
             )}
             onClick={() => onOptionSelect('color', 'rojo')}
           >
-            <div className="flex items-center justify-center w-full">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-red to-red-700 mr-1"></div>
-              <span className="text-white font-bold">RED</span>
+            <div className="inline-flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-red to-red-700 mr-2"></div>
+              <span>RED</span>
             </div>
           </div>
           
           <div 
             className={cn(
-              "col-span-1 bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60 cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              "col-span-1 bg-gradient-to-br from-roulette-black to-gray-800 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-black/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
               isPrediction('color', 'negro') ? "ring-2 ring-white animate-pulse-light" : ""
             )}
             onClick={() => onOptionSelect('color', 'negro')}
           >
-            <div className="flex items-center justify-center w-full">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-black to-gray-800 mr-1"></div>
-              <span className="text-white font-bold">BLACK</span>
+            <div className="inline-flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-roulette-black to-gray-800 mr-2"></div>
+              <span>BLACK</span>
             </div>
           </div>
           <div 
@@ -245,5 +246,4 @@ const RouletteBoard = ({
 };
 
 export default RouletteBoard;
-
 
