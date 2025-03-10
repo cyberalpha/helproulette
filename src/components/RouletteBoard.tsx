@@ -38,37 +38,41 @@ const RouletteBoard = ({
     <div className={cn("grid grid-cols-14 gap-1 border-4 border-white rounded-xl p-4 mb-6", 
       animateBoard ? 'scale-in' : '')}>
       
-      {/* Número cero */}
+      {/* Zero number */}
       <ZeroNumber 
         onNumberClick={onNumberClick} 
         highlighted={highlightedNumbers.includes(0)}
         isLastResult={lastNumber === 0} 
       />
       
-      {/* Cuadrícula de números */}
+      {/* Numbers grid */}
       <NumbersGrid 
         highlightedNumbers={highlightedNumbers}
         lastNumber={lastNumber}
         onNumberClick={onNumberClick}
       />
       
-      {/* Opciones de columnas */}
+      {/* Column options */}
       <ColumnOptions 
         recommendedColumns={recommendedColumns}
         onOptionSelect={onOptionSelect}
       />
       
-      {/* Opciones de docenas */}
-      <DozenOptions 
-        recommendedDozens={recommendedDozens}
-        onOptionSelect={onOptionSelect}
-      />
+      {/* Dozen options */}
+      <div className="col-span-12 mt-1">
+        <DozenOptions 
+          recommendedDozens={recommendedDozens}
+          onOptionSelect={onOptionSelect}
+        />
+      </div>
       
-      {/* Opciones de apuestas */}
-      <BettingGridOptions 
-        highlightedPredictions={highlightedPredictions}
-        onOptionSelect={onOptionSelect}
-      />
+      {/* Betting options */}
+      <div className="col-span-14">
+        <BettingGridOptions 
+          highlightedPredictions={highlightedPredictions}
+          onOptionSelect={onOptionSelect}
+        />
+      </div>
     </div>
   );
 };
