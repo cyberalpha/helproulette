@@ -18,8 +18,8 @@ const BettingOptions = ({
   const options = [
     { type: 'color', value: 'rojo', label: 'Rojo', className: 'bg-roulette-red text-white' },
     { type: 'color', value: 'negro', label: 'Negro', className: 'bg-roulette-black text-white' },
-    { type: 'parity', value: 'par', label: 'Par', className: 'bg-roulette-green border border-white text-white' },
-    { type: 'parity', value: 'impar', label: 'Impar', className: 'bg-roulette-green border border-white text-white' },
+    { type: 'parity', value: 'par', label: 'EVEN', className: 'bg-roulette-green border border-white text-white' },
+    { type: 'parity', value: 'impar', label: 'ODD', className: 'bg-roulette-green border border-white text-white' },
     { type: 'half', value: '1-18', label: '1-18', className: 'bg-roulette-green border border-white text-white' },
     { type: 'half', value: '19-36', label: '19-36', className: 'bg-roulette-green border border-white text-white' },
   ];
