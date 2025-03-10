@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import RouletteNumber from "./RouletteNumber";
@@ -75,7 +74,7 @@ const Roulette = () => {
               onClick={handleNumberClick} 
               highlighted={prediction?.highlightedNumbers.includes(0)}
               isLastResult={lastNumber === 0}
-              className="h-[48px] mr-1"
+              className="w-[48px] h-[147px] mr-1"
             />
           </div>
           
@@ -185,7 +184,7 @@ const Roulette = () => {
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 my-[1px]"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
               onClick={() => handleOptionSelect('column', '2nd_column')}
             >
               2to1
