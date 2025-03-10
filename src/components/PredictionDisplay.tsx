@@ -34,7 +34,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
                 "prediction-badge text-white",
                 title === "Plenos recomendados" 
                   ? cn(getNumberBackground(item), "border border-white/20")
-                  : "bg-gradient-to-br from-orange-400/40 to-purple-500/40 backdrop-blur-sm border border-white/20",
+                  : "bg-gradient-to-br from-green-600/60 to-green-700/60 backdrop-blur-sm border border-white/20",
                 className
               )}
             >
