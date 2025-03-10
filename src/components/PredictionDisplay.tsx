@@ -31,7 +31,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
             <span
               key={`${title}-${item}`}
               className={cn(
-                "prediction-badge",
+                "prediction-badge text-white",
                 title === "Plenos recomendados" 
                   ? cn(getNumberBackground(item), "border border-white/20")
                   : "bg-gradient-to-br from-orange-400/40 to-purple-500/40 backdrop-blur-sm border border-white/20",
