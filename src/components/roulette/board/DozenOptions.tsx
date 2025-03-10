@@ -13,14 +13,14 @@ const DozenOptions = ({ recommendedDozens, onOptionSelect }: DozenOptionsProps) 
   };
 
   return (
-    <div className="grid grid-cols-12 gap-1">
+    <div className="grid grid-cols-3 gap-1">
       <BettingOption
         label="1st12"
         type="dozen"
         value="1st12"
         highlighted={isDozenRecommended('1st12')}
         onClick={onOptionSelect}
-        className="col-span-4 h-[48px]"
+        className="h-[48px]"
       />
       <BettingOption
         label="2nd12"
@@ -28,7 +28,7 @@ const DozenOptions = ({ recommendedDozens, onOptionSelect }: DozenOptionsProps) 
         value="2nd12"
         highlighted={isDozenRecommended('2nd12')}
         onClick={onOptionSelect}
-        className="col-span-4 h-[48px]"
+        className="h-[48px]"
       />
       <BettingOption
         label="3rd12"
@@ -36,7 +36,7 @@ const DozenOptions = ({ recommendedDozens, onOptionSelect }: DozenOptionsProps) 
         value="3rd12"
         highlighted={isDozenRecommended('3rd12')}
         onClick={onOptionSelect}
-        className="col-span-4 h-[48px]"
+        className="h-[48px]"
       />
     </div>
   );
