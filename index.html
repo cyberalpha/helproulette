@@ -29,9 +29,15 @@
         align-items: center;
         justify-content: center;
       }
-      
-      /* Force landscape orientation for mobile devices */
-      @media only screen and (max-device-width: 896px) and (orientation: portrait) {
+
+      /* Ensure both app and sandbox are in landscape */
+      html {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      /* Force landscape for mobile devices */
+      @media screen and (orientation: portrait) {
         html {
           transform: rotate(-90deg);
           transform-origin: left top;
@@ -40,18 +46,19 @@
           position: absolute;
           top: 100%;
           left: 0;
+          overflow-x: hidden;
         }
       }
-      
-      /* Force landscape orientation for the Lovable sandbox emulation */
+
+      /* Force landscape for the sandbox emulation */
       .gpt-engineer-frame, .sandbox-frame {
         width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16/9 !important;
+        height: 100% !important;
+        max-height: 100vh !important;
         transform: rotate(0deg) !important;
+        aspect-ratio: 16/9 !important;
       }
-      
-      /* Additional adjustments for proper display on all devices */
+
       @media only screen and (max-device-width: 896px) {
         body {
           background-color: #121212;
@@ -59,7 +66,6 @@
       }
     </style>
   </head>
-
   <body>
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
