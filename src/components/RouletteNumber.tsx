@@ -45,7 +45,7 @@ const RouletteNumber = ({
       className={cn(
         "flex items-center justify-center cursor-pointer transition-all duration-300",
         getNumberColor(),
-        "w-[48px] h-[48px]", // All numbers including zero now have the same dimensions
+        number === 0 ? "w-[48px] h-[148px]" : "w-[48px] h-[48px]", // Zero is now the height of three numbers (48px * 3 + 4px for gaps)
         highlighted && "ring-2 ring-yellow-400 ring-opacity-100",
         animate && "animate-pulse-light",
         isLastResult && "ring-2 ring-white",
