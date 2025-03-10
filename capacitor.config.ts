@@ -21,11 +21,13 @@ const config: CapacitorConfig = {
   },
   android: {
     backgroundColor: "#121212",
-    screenOrientation: "landscape"
+    screenOrientation: "landscape",
+    hideLogs: false
   },
   ios: {
     backgroundColor: "#121212",
-    orientation: ["landscape"]
+    orientation: ["landscape"],
+    limitsNavigationsToAppBoundDomains: true
   }
 };
 

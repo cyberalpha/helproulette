@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
     <meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
     <meta name="screen-orientation" content="landscape" />
+    <meta name="orientation" content="landscape" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>roulette-lightshow</title>
@@ -13,6 +14,11 @@
     <meta name="author" content="Lovable" />
     <meta property="og:image" content="/og-image.png" />
     <style>
+      html, body {
+        height: 100%;
+        overflow: hidden;
+      }
+      
       @media screen and (orientation: portrait) {
         html {
           transform: rotate(-90deg);
@@ -23,6 +29,26 @@
           position: absolute;
           top: 100%;
           left: 0;
+        }
+      }
+      
+      /* Estilos adicionales para forzar el modo landscape en el previsualizador */
+      @media (max-width: 896px) {
+        body {
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        #root {
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          transform-origin: center center;
+          transform: rotate(0deg);
         }
       }
     </style>
