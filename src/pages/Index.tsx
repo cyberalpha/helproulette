@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import Roulette from "@/components/Roulette";
 import { useEntranceAnimation } from "@/lib/animations";
@@ -8,8 +7,8 @@ const Index = () => {
   const contentVisible = useEntranceAnimation(600);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center px-4 py-10">
-      {/* Efecto de gradiente animado */}
+    <div className="min-h-screen w-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center px-4 py-10 landscape:rotate-0 portrait:rotate-90 portrait:h-screen portrait:w-screen portrait:origin-top-left portrait:translate-y-full">
+      {/* Efectos de gradiente y luz */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-purple-900/10 to-indigo-900/10 pointer-events-none z-0"></div>
       
       {/* Efectos de luz */}
