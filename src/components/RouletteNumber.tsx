@@ -45,7 +45,7 @@ const RouletteNumber = ({
       className={cn(
         "flex items-center justify-center cursor-pointer transition-all duration-300",
         getNumberColor(),
-        number === 0 ? "aspect-[3/4] col-span-3" : "aspect-square",
+        number === 0 ? "aspect-[3/4] col-span-3 w-[42px] h-[56px]" : "w-[42px] h-[42px]", // Tamaño fijo de 42px para los números
         highlighted && "ring-2 ring-yellow-400 ring-opacity-100",
         animate && "animate-pulse-light",
         isLastResult && "ring-2 ring-white",
