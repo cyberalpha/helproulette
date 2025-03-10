@@ -68,7 +68,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
             <div className="bg-black/20 p-3 rounded-lg backdrop-blur-sm">
               <h3 className="text-sm font-medium text-gray-300 mb-1">Color</h3>
               <p className={cn(
-                "font-medium",
+                "font-medium animate-pulse-light",
                 predictions.color === "rojo" ? "text-red-500" : "text-gray-200"
               )}>
                 {predictions.color.toUpperCase()}
@@ -79,7 +79,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
           {predictions.parity && (
             <div className="bg-black/20 p-3 rounded-lg backdrop-blur-sm">
               <h3 className="text-sm font-medium text-gray-300 mb-1">Paridad</h3>
-              <p className="font-medium text-white/90">
+              <p className="font-medium text-white/90 animate-pulse-light">
                 {predictions.parity.toUpperCase()}
               </p>
             </div>
@@ -88,7 +88,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
           {predictions.half && (
             <div className="bg-black/20 p-3 rounded-lg backdrop-blur-sm">
               <h3 className="text-sm font-medium text-gray-300 mb-1">Mitad</h3>
-              <p className="font-medium text-white/90">
+              <p className="font-medium text-white/90 animate-pulse-light">
                 {predictions.half}
               </p>
             </div>
@@ -99,8 +99,8 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
         <div className="space-y-4">
           {renderPredictionBadges("Plenos recomendados", predictions.pleno, "bg-purple-900/70 text-white", true)}
           {renderPredictionBadges("Docenas sugeridas", predictions.dozens, undefined, true)}
-          {renderPredictionBadges("Líneas sugeridas", predictions.lines)}
-          {renderPredictionBadges("Columnas sugeridas", predictions.columns)}
+          {renderPredictionBadges("Líneas sugeridas", predictions.lines, undefined, true)}
+          {renderPredictionBadges("Columnas sugeridas", predictions.columns, undefined, true)}
         </div>
       </div>
     </div>

@@ -83,7 +83,7 @@ const RouletteBoard = ({
           <div 
             className={cn(
               "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-              isDozenRecommended('1st12') ? "animate-pulse-light" : ""
+              isDozenRecommended('1st12') ? "ring-2 ring-yellow-400" : ""
             )}
             onClick={() => onOptionSelect('dozen', '1st12')}
           >
@@ -92,7 +92,7 @@ const RouletteBoard = ({
           <div 
             className={cn(
               "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-              isDozenRecommended('2nd12') ? "animate-pulse-light" : ""
+              isDozenRecommended('2nd12') ? "ring-2 ring-yellow-400" : ""
             )}
             onClick={() => onOptionSelect('dozen', '2nd12')}
           >
@@ -101,7 +101,7 @@ const RouletteBoard = ({
           <div 
             className={cn(
               "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border border-white/60 text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
-              isDozenRecommended('3rd12') ? "animate-pulse-light" : ""
+              isDozenRecommended('3rd12') ? "ring-2 ring-yellow-400" : ""
             )}
             onClick={() => onOptionSelect('dozen', '3rd12')}
           >

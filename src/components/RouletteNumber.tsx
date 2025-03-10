@@ -48,13 +48,13 @@ const RouletteNumber = ({
         getNumberColor(),
         number === 0 ? "w-[48px] h-[148px] rounded-xl" : "w-[48px] h-[48px] rounded-xl",
         highlighted && "ring-2 ring-yellow-400 ring-opacity-100 animate-pulse-light",
-        animate && "animate-pulse-light",
+        animate && "scale-110 transition-transform",
         isLastResult && "ring-2 ring-white",
         className
       )}
       aria-label={`Número ${number}`}
     >
-      <span className={cn("text-xl font-bold text-white", animate && "scale-110 transition-transform")}>
+      <span className={cn("text-xl font-bold text-white")}>
         {number}
       </span>
     </div>
