@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import RouletteNumber from "./RouletteNumber";
@@ -112,7 +113,7 @@ const Roulette = () => {
               ))}
             </div>
             
-            <div className="grid grid-cols-12 gap-0.5 mt-0.5 ml-[42px]">
+            <div className="grid grid-cols-12 gap-0.5 mt-0.5">
               <div 
                 className="col-span-4 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
                 onClick={() => handleOptionSelect('dozen', '1st12')}
@@ -133,7 +134,7 @@ const Roulette = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-12 gap-0.5 mt-0.5 ml-[42px]">
+            <div className="grid grid-cols-12 gap-0.5 mt-0.5">
               <div 
                 className="col-span-2 bg-roulette-green border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[40px]"
                 onClick={() => handleOptionSelect('half', '1to18')}
