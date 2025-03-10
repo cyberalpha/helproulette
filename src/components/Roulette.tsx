@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import BettingOptions from "./BettingOptions";
@@ -49,6 +48,18 @@ const Roulette = () => {
       description: "Predicciones actualizadas",
       duration: 2000,
     });
+  };
+
+  const getRecommendedDozens = (): string[] => {
+    if (!prediction || !prediction.predictions.dozens.length) return [];
+    
+    const dozenMapping: Record<number, string> = {
+      1: '1st12',
+      2: '2nd12',
+      3: '3rd12'
+    };
+    
+    return prediction.predictions.dozens.map(dozen => dozenMapping[dozen] || '');
   };
 
   const checkWinnings = (number: number) => {
@@ -197,6 +208,7 @@ const Roulette = () => {
             onNumberClick={handleNumberClick}
             onOptionSelect={handleOptionSelect}
             animateBoard={animateBoard}
+            recommendedDozens={getRecommendedDozens()}
           />
         )}
         

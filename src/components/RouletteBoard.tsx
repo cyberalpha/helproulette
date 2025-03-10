@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import RouletteNumber from "./RouletteNumber";
 import { cn } from "@/lib/utils";
@@ -9,6 +8,7 @@ interface RouletteBoardProps {
   onNumberClick: (number: number) => void;
   onOptionSelect: (type: string, value: string) => void;
   animateBoard: boolean;
+  recommendedDozens?: string[];
 }
 
 const RouletteBoard = ({
@@ -16,8 +16,19 @@ const RouletteBoard = ({
   highlightedNumbers,
   onNumberClick,
   onOptionSelect,
-  animateBoard
+  animateBoard,
+  recommendedDozens = []
 }: RouletteBoardProps) => {
+  const dozenMap: Record<string, string> = {
+    '1st12': '1st12',
+    '2nd12': '2nd12',
+    '3rd12': '3rd12'
+  };
+
+  const isDozenRecommended = (dozen: string) => {
+    return recommendedDozens.includes(dozen);
+  };
+
   return (
     <div className={cn("grid grid-cols-14 gap-1 border-4 border-white rounded-xl p-4 mb-6", 
       animateBoard ? 'scale-in' : '')}>
@@ -69,19 +80,28 @@ const RouletteBoard = ({
         
         <div className="grid grid-cols-3 gap-1 mt-4">
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isDozenRecommended('1st12') && "animate-pulse-light"
+            )}
             onClick={() => onOptionSelect('dozen', '1st12')}
           >
             1st12
           </div>
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isDozenRecommended('2nd12') && "animate-pulse-light"
+            )}
             onClick={() => onOptionSelect('dozen', '2nd12')}
           >
             2nd12
           </div>
           <div 
-            className="col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all"
+            className={cn(
+              "col-span-1 bg-gradient-to-br from-roulette-green to-green-700 border-2 border-white text-white text-center font-bold cursor-pointer hover:bg-roulette-green/80 flex items-center justify-center h-[48px] rounded-xl shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all",
+              isDozenRecommended('3rd12') && "animate-pulse-light"
+            )}
             onClick={() => onOptionSelect('dozen', '3rd12')}
           >
             3rd12

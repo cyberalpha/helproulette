@@ -11,7 +11,7 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
   const { predictions, statistics } = prediction;
 
   // Función para crear badges de predicción
-  const renderPredictionBadges = (title: string, items: number[], className?: string) => {
+  const renderPredictionBadges = (title: string, items: number[], className?: string, animate: boolean = false) => {
     if (!items.length) return null;
     
     return (
@@ -23,7 +23,8 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
               key={`${title}-${item}`}
               className={cn(
                 "prediction-badge bg-black/30 backdrop-blur-sm",
-                className
+                className,
+                animate && "animate-pulse-light"
               )}
             >
               {item}
@@ -96,8 +97,8 @@ const PredictionDisplay = ({ prediction, lastNumber }: PredictionDisplayProps) =
         
         {/* Predicciones específicas */}
         <div className="space-y-4">
-          {renderPredictionBadges("Plenos recomendados", predictions.pleno, "bg-purple-900/70 text-white")}
-          {renderPredictionBadges("Docenas sugeridas", predictions.dozens)}
+          {renderPredictionBadges("Plenos recomendados", predictions.pleno, "bg-purple-900/70 text-white", true)}
+          {renderPredictionBadges("Docenas sugeridas", predictions.dozens, undefined, true)}
           {renderPredictionBadges("Líneas sugeridas", predictions.lines)}
           {renderPredictionBadges("Columnas sugeridas", predictions.columns)}
         </div>
