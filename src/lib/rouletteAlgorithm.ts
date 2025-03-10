@@ -39,7 +39,7 @@ const colorVector = [
 let plenos: number[] = Array(37).fill(0);
 let docenas: number[] = Array(3).fill(0);
 let lineas: number[] = Array(3).fill(0);
-let columnas: number[] = Array(12).fill(0);
+let columnas: number[] = Array(12).fill(0); // Realmente son 3 columnas, no 12
 let calles: number[] = Array(11).fill(0);
 let cuadros: number[] = Array(22).fill(0);
 let doblenegros: number[] = Array(7).fill(0);
@@ -79,7 +79,7 @@ export function resetAlgorithm(): void {
   plenos = Array(37).fill(0);
   docenas = Array(3).fill(0);
   lineas = Array(3).fill(0);
-  columnas = Array(12).fill(0);
+  columnas = Array(3).fill(0); // Corregido a 3 columnas
   calles = Array(11).fill(0);
   cuadros = Array(22).fill(0);
   doblenegros = Array(7).fill(0);
@@ -143,33 +143,32 @@ export function processNumber(num: number): PredictionResult {
       break;
     default:
       color = colorVector[num];
-      columna = Math.floor((num - 1) / 3);
       break;
   }
 
   // Procesar el número si no es cero
   if (num !== 0) {
-    // Carga de columnas
-    columna = 0;
-    for (let i = 1; i <= 36; i += 3) {
-      if (num >= i && num <= (i + 2)) {
-        columnas[columna] += pesocolumna;
-        break;
-      }
-      columna++;
+    // Carga de columnas (ajuste correcto de columnas)
+    // Columna 1: números 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34
+    // Columna 2: números 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35
+    // Columna 3: números 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36
+    if (num > 0) {
+      // Calculamos qué columna es según el residuo de la división por 3
+      columna = (num - 1) % 3;
+      columnas[columna] += pesocolumna;
     }
 
     // Cálculo de línea
     linea = num % 3;
     switch (linea) {
       case 0:
-        linea = 2;
+        linea = 2; // Para los números múltiplos de 3 (3, 6, 9, etc.)
         break;
       case 1:
-        linea = 0;
+        linea = 0; // Para los números que al dividir por 3 dan resto 1 (1, 4, 7, etc.)
         break;
       case 2:
-        linea = 1;
+        linea = 1; // Para los números que al dividir por 3 dan resto 2 (2, 5, 8, etc.)
         break;
     }
     lineas[linea] += pesodocenaylinea;
