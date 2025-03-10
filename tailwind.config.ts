@@ -84,21 +84,13 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+				"accordion-down": {
+					from: { height: "0" },
+					to: { height: "var(--radix-accordion-content-height)" },
 				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+				"accordion-up": {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0" },
 				},
 				'fade-in': {
 					'0%': { opacity: '0' },
@@ -110,7 +102,7 @@ export default {
 				},
 				'pulse-light': {
 					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.7' }
+					'50%': { opacity: '0.2' }
 				},
 				'spin-slow': {
 					'0%': { transform: 'rotate(0deg)' },
@@ -130,7 +122,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
 				'slide-up': 'slide-up 0.5s ease-out',
-				'pulse-light': 'pulse-light 2s ease-in-out infinite',
+				'pulse-light': 'pulse-light 1s ease-in-out infinite',
 				'spin-slow': 'spin-slow 10s linear infinite',
 				'scale-in': 'scale-in 0.3s ease-out',
 				'glow': 'glow 2s ease-in-out infinite'

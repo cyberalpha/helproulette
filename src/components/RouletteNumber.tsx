@@ -47,7 +47,7 @@ const RouletteNumber = ({
         "hover:scale-[1.03] active:scale-[0.97]", 
         getNumberColor(),
         number === 0 ? "w-[48px] h-[148px] rounded-xl" : "w-[48px] h-[48px] rounded-xl",
-        highlighted && "ring-2 ring-yellow-400 ring-opacity-100 animate-pulse-light",
+        highlighted && "ring-2 ring-white ring-opacity-100 animate-pulse-light",
         animate && "scale-110 transition-transform",
         isLastResult && "ring-2 ring-white",
         className
