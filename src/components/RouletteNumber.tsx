@@ -21,14 +21,14 @@ const RouletteNumber = ({
 
   // Determinar el color del número
   const getNumberColor = () => {
-    if (number === 0) return "bg-roulette-green border-2 border-white";
+    if (number === 0) return "bg-gradient-to-br from-roulette-green to-green-700 border-2 border-white";
     
     // Números rojos según la imagen: 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36
     const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
     
     return redNumbers.includes(number) 
-      ? "bg-roulette-red border-2 border-white" 
-      : "bg-roulette-black border-2 border-white";
+      ? "bg-gradient-to-br from-roulette-red to-red-700 border-2 border-white" 
+      : "bg-gradient-to-br from-roulette-black to-gray-800 border-2 border-white";
   };
 
   useEffect(() => {
@@ -43,9 +43,9 @@ const RouletteNumber = ({
     <div
       onClick={() => onClick(number)}
       className={cn(
-        "flex items-center justify-center cursor-pointer transition-all duration-300",
+        "flex items-center justify-center cursor-pointer transition-all duration-300 shadow-md",
         getNumberColor(),
-        number === 0 ? "w-[48px] h-[148px]" : "w-[48px] h-[48px]", // Zero is now the height of three numbers (48px * 3 + 4px for gaps)
+        number === 0 ? "w-[48px] h-[148px] rounded-xl" : "w-[48px] h-[48px] rounded-xl", // Added rounded-xl
         highlighted && "ring-2 ring-yellow-400 ring-opacity-100",
         animate && "animate-pulse-light",
         isLastResult && "ring-2 ring-white",
