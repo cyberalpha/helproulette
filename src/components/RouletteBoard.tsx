@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import RouletteNumber from "./RouletteNumber";
 import { cn } from "@/lib/utils";
@@ -17,6 +16,7 @@ interface RouletteBoardProps {
   animateBoard: boolean;
   recommendedDozens?: string[];
   highlightedPredictions: HighlightedPredictions | null;
+  recommendedColumns?: number[];
 }
 
 const RouletteBoard = ({
@@ -26,7 +26,8 @@ const RouletteBoard = ({
   onOptionSelect,
   animateBoard,
   recommendedDozens = [],
-  highlightedPredictions
+  highlightedPredictions,
+  recommendedColumns = []
 }: RouletteBoardProps) => {
   const dozenMap: Record<string, string> = {
     '1st12': '1st12',
@@ -38,20 +39,16 @@ const RouletteBoard = ({
     return recommendedDozens.includes(dozen);
   };
 
-  // Determine if a column is recommended based on highlighted numbers
+  // Determine if a column is recommended based on the algorithm's column predictions
   const isColumnRecommended = (column: string) => {
-    const firstColumn = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
-    const secondColumn = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
-    const thirdColumn = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
+    if (recommendedColumns.length === 0) return false;
     
-    let columnNumbers: number[] = [];
+    // Map column names to their numerical values from the algorithm
+    if (column === '1st_column' && recommendedColumns.includes(1)) return true;
+    if (column === '2nd_column' && recommendedColumns.includes(2)) return true;
+    if (column === '3rd_column' && recommendedColumns.includes(3)) return true;
     
-    if (column === '1st_column') columnNumbers = firstColumn;
-    if (column === '2nd_column') columnNumbers = secondColumn;
-    if (column === '3rd_column') columnNumbers = thirdColumn;
-    
-    // Check if the highlighted numbers include numbers in this column
-    return columnNumbers.some(num => highlightedNumbers.includes(num));
+    return false;
   };
 
   // Check if the option is recommended by the prediction algorithm

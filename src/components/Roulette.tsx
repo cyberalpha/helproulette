@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import PredictionDisplay from "./PredictionDisplay";
@@ -49,7 +48,6 @@ const Roulette = () => {
     });
   };
 
-  // Función para mapear docenas a sus representaciones
   const getRecommendedDozens = (): string[] => {
     if (!prediction || !prediction.predictions.dozens.length) return [];
     
@@ -60,6 +58,11 @@ const Roulette = () => {
     };
     
     return prediction.predictions.dozens.map(dozen => dozenMapping[dozen] || '');
+  };
+
+  const getRecommendedColumns = (): number[] => {
+    if (!prediction || !prediction.predictions.columns.length) return [];
+    return prediction.predictions.columns;
   };
 
   const checkWinnings = (number: number) => {
@@ -214,6 +217,7 @@ const Roulette = () => {
             animateBoard={animateBoard}
             recommendedDozens={getRecommendedDozens()}
             highlightedPredictions={getHighlightedPredictions()}
+            recommendedColumns={getRecommendedColumns()}
           />
         )}
       </div>
