@@ -28,24 +28,17 @@
         }
       }
       
-      /* Estilos específicos para el sandbox de Lovable (orientación horizontal forzada) */
+      /* Ajustes para el sandbox de Lovable en vista previa móvil */
       @media (max-width: 450px) {
-        html, body, #root {
-          width: 100vw;
-          height: 100vh;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-        }
-        
-        #root {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transform: rotate(90deg);
-          transform-origin: center center;
+        html {
+          transform: rotate(-90deg);
+          transform-origin: left top;
           width: 100vh;
           height: 100vw;
+          overflow-x: hidden;
+          position: absolute;
+          top: 100%;
+          left: 0;
         }
       }
       
