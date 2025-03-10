@@ -68,16 +68,18 @@ const Roulette = () => {
         </div>
         
         <div className="grid grid-cols-14 gap-1 border-4 border-white p-4 mb-6">
-          <div className="col-span-1 flex justify-center items-center">
+          {/* Zero column */}
+          <div className="col-span-1 flex items-center">
             <RouletteNumber 
               number={0} 
               onClick={handleNumberClick} 
               highlighted={prediction?.highlightedNumbers.includes(0)}
               isLastResult={lastNumber === 0}
-              className="h-[147px] w-full mr-1"
+              className="h-[48px] mr-1"
             />
           </div>
           
+          {/* Main number grid */}
           <div className="col-span-12">
             <div className="grid grid-cols-12 gap-1 mb-1">
               {[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36].map(num => (
@@ -174,6 +176,7 @@ const Roulette = () => {
             </div>
           </div>
           
+          {/* 2to1 column */}
           <div className="col-span-1 flex flex-col justify-between">
             <div 
               className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
@@ -182,7 +185,7 @@ const Roulette = () => {
               2to1
             </div>
             <div 
-              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1"
+              className="bg-roulette-green border-2 border-white text-white flex items-center justify-center font-bold text-xs md:text-sm cursor-pointer hover:bg-roulette-green/80 h-[48px] ml-1 my-[1px]"
               onClick={() => handleOptionSelect('column', '2nd_column')}
             >
               2to1
