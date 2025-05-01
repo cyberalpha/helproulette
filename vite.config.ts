@@ -22,10 +22,18 @@ export default defineConfig(({ mode }) => ({
   },
   css: {
     devSourcemap: true,
-    // Add more specific CSS configuration if needed
+    preprocessorOptions: {
+      // Add any CSS preprocessor options if needed
+    }
   },
   optimizeDeps: {
     include: ['react', 'react-dom'],
-    force: true // Force dependency optimization
+    force: true 
   },
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      // Configure rollup options if needed
+    }
+  }
 }));
