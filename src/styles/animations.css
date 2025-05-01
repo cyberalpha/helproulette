@@ -1,6 +1,4 @@
 
-@tailwind utilities;
-
 .bounce-enter {
   animation: bounce-in 0.5s ease-out;
 }
