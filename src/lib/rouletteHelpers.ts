@@ -1,5 +1,5 @@
 
-import { PredictionResult } from "@/lib/rouletteAlgorithm";
+import { PredictionResult } from "@/lib/roulette";
 
 // Mapeo de docenas para recomendaciones
 export const dozenMapping: Record<number, string> = {
