@@ -9,6 +9,12 @@ export default defineConfig({
     host: "::",
     port: 8080,
   },
+  css: {
+    // Enable CSS modules for all css files
+    modules: {
+      localsConvention: "camelCase"
+    }
+  },
   plugins: [
     react(),
   ],

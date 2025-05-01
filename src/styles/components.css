@@ -1,0 +1,33 @@
+
+@tailwind components;
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-lg;
+  }
+  
+  .number-button {
+    @apply relative flex items-center justify-center transition-all duration-300 
+           hover:scale-[1.03] active:scale-[0.97] cursor-pointer shadow-md;
+  }
+  
+  .number-button-red {
+    @apply bg-roulette-red text-white;
+  }
+  
+  .number-button-black {
+    @apply bg-roulette-black text-white;
+  }
+  
+  .number-button-green {
+    @apply bg-roulette-green text-white;
+  }
+  
+  .prediction-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium animate-fade-in;
+  }
+  
+  .highlighted {
+    @apply ring-2 ring-roulette-gold ring-opacity-100 animate-glow;
+  }
+}
