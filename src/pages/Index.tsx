@@ -7,7 +7,7 @@ const Index = () => {
   const contentVisible = useEntranceAnimation(600);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center py-10 overflow-auto">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center px-4 py-10 overflow-auto">
       {/* Efectos de gradiente y luz */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-purple-900/10 to-indigo-900/10 pointer-events-none z-0"></div>
       
@@ -16,7 +16,7 @@ const Index = () => {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-600/10 rounded-full blur-3xl animate-pulse-light pointer-events-none"></div>
       
       {/* Contenido */}
-      <div className="relative z-10 w-full mx-auto">
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
         <header className={`text-center mb-12 transition-all duration-1000 pt-5 ${headerVisible ? 'opacity-100' : 'opacity-0 transform translate-y-10'}`}>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Predictor de Ruleta</h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
