@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       // Configure rollup options if needed
     },
-    minify: 'terser',
+    minify: mode === 'production' ? 'terser' : false, // Only use terser in production
     terserOptions: {
       compress: {
         drop_console: false,
