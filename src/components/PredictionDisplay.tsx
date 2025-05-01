@@ -1,5 +1,5 @@
 
-import { PredictionResult } from "@/lib/rouletteAlgorithm";
+import { PredictionResult } from "@/lib/roulette/types";
 import { cn } from "@/lib/utils";
 import PredictionBadges from "./prediction/PredictionBadges";
 import PredictionStatistics from "./prediction/PredictionStatistics";

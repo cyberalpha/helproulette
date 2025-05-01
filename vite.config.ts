@@ -22,6 +22,9 @@ export default defineConfig(({ mode }) => ({
   },
   css: {
     devSourcemap: true,
+    modules: {
+      scopeBehaviour: 'local',
+    },
     preprocessorOptions: {
       // Add any CSS preprocessor options if needed
     }
@@ -34,6 +37,12 @@ export default defineConfig(({ mode }) => ({
     sourcemap: true,
     rollupOptions: {
       // Configure rollup options if needed
-    }
+    },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: false,
+      },
+    },
   }
 }));
