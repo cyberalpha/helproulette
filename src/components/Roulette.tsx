@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import PredictionDisplay from "./PredictionDisplay";
 import RouletteBoard from "./RouletteBoard";
 import RouletteHistory from "./RouletteHistory";
+import WinnerGallery from "./WinnerGallery";
+import GameStats from "./GameStats";
 import { processNumber } from "@/lib/roulette";
 import type { PredictionResult } from "@/lib/roulette/types";
 import { getRecommendedDozens, getRecommendedColumns, getHighlightedPredictions } from "@/lib/rouletteHelpers";
 import { SelectedOptions, handleOptionSelect } from "./roulette/BettingHandler";
 import { GameState, handleNumberClick } from "./roulette/GameLogic";
 import { handleReset } from "./roulette/ResetHandler";
+import { Button } from "./ui/button";
 
 const Roulette = () => {
   const [lastNumber, setLastNumber] = useState<number | null>(null);
@@ -73,12 +76,13 @@ const Roulette = () => {
       <div className="bg-roulette-green p-6 w-full max-w-4xl rounded-md border-4 border-white transition-all duration-500">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white">Ruleta</h2>
-          <button 
+          <Button 
             onClick={onReset}
-            className="bg-black/30 hover:bg-black/50 text-white px-4 py-2 rounded-lg transition-colors duration-300"
+            variant="outline"
+            className="bg-black/30 hover:bg-black/50 text-white border-white/30 hover:border-white/60"
           >
             Reiniciar
-          </button>
+          </Button>
         </div>
         
         {prediction && (
@@ -95,16 +99,20 @@ const Roulette = () => {
         )}
       </div>
       
-      <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
-        <RouletteHistory history={history} />
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 space-y-6">
+          <RouletteHistory history={history} />
+          {winnerPhotos.length > 0 && <WinnerGallery photos={winnerPhotos} />}
+        </div>
         
-        <div>
+        <div className="space-y-6">
           {prediction && (
             <PredictionDisplay 
               prediction={prediction} 
               lastNumber={lastNumber}
             />
           )}
+          <GameStats history={history} prediction={prediction} />
         </div>
       </div>
     </div>

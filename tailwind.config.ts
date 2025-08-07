@@ -70,11 +70,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				roulette: {
-					red: '#DC2626',
-					black: '#171717',
-					green: '#047857',
-					board: '#047857',
-					gold: '#F59E0B',
+					red: 'hsl(var(--roulette-red))',
+					black: 'hsl(var(--roulette-black))',
+					green: 'hsl(var(--roulette-green))',
+					board: 'hsl(var(--roulette-board))',
+					gold: 'hsl(var(--roulette-gold))',
 					highlight: 'rgba(255, 255, 255, 0.15)'
 				}
 			},
