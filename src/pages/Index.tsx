@@ -19,7 +19,7 @@ const Index = () => {
       <div className="relative z-10 w-full">
         <header className={`text-center mb-8 transition-all duration-1000 pt-8 px-4 ${headerVisible ? 'opacity-100' : 'opacity-0 transform translate-y-10'}`}>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Predictor de Ruleta</h1>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto px-4">
             Sistema avanzado de predicción basado en patrones estadísticos. Haga clic en los números para registrar los resultados y ver las predicciones.
           </p>
         </header>
