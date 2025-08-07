@@ -73,7 +73,7 @@ const Roulette = () => {
 
   return (
     <div className="w-full flex flex-col space-y-8">
-      <div className="bg-roulette-green p-4 md:p-6 w-full rounded-md border-4 border-white transition-all duration-500 mx-2 md:mx-4">
+      <div className="bg-roulette-green p-4 md:p-6 w-full rounded-md border-4 border-white transition-all duration-500 mx-4 md:mx-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white">Ruleta</h2>
           <Button 
@@ -99,7 +99,7 @@ const Roulette = () => {
         )}
       </div>
       
-      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 px-2 md:px-4">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 px-4 md:px-8">
         <div className="lg:col-span-2 space-y-6">
           <RouletteHistory history={history} />
           {winnerPhotos.length > 0 && <WinnerGallery photos={winnerPhotos} />}
