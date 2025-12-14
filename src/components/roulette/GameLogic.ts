@@ -37,8 +37,8 @@ const takeWinnerPhoto = async (setWinnerPhotos?: React.Dispatch<React.SetStateAc
     if (photo.dataUrl) {
       setWinnerPhotos(prev => [...prev, photo.dataUrl]);
     }
-  } catch (error) {
-    console.error('Error al tomar la foto:', error);
+  } catch {
+    // Photo capture failed - notify user via toast only
     toast({
       title: "Error al tomar la foto",
       description: "No se pudo capturar la imagen del ganador",
@@ -64,8 +64,8 @@ const sendWinNotification = async (winAmount: number) => {
         }
       ]
     });
-  } catch (error) {
-    console.error('Error al enviar notificación:', error);
+  } catch {
+    // Notification failed - silently ignore as it's non-critical
   }
 };
 

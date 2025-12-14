@@ -20,8 +20,8 @@ export const requestCameraPermissions = async (): Promise<boolean> => {
     }
     
     return true;
-  } catch (error) {
-    console.error('Error al solicitar permisos de cámara:', error);
+  } catch {
+    // Permission denied or error - return false silently
     return false;
   }
 };
@@ -39,8 +39,8 @@ export const requestNotificationPermissions = async (): Promise<boolean> => {
     }
     
     return true;
-  } catch (error) {
-    console.error('Error al solicitar permisos de notificaciones:', error);
+  } catch {
+    // Permission denied or error - return false silently
     return false;
   }
 };
