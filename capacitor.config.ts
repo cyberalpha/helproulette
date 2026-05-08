@@ -7,7 +7,7 @@ const config: CapacitorConfig = {
   webDir: 'dist',
   server: {
     url: 'https://f177f8a0-0045-476d-bad6-ffe320ee0786.lovableproject.com?forceHideBadge=true',
-    cleartext: true
+    cleartext: false
   },
   plugins: {
     LocalNotifications: {
@@ -22,7 +22,7 @@ const config: CapacitorConfig = {
   android: {
     backgroundColor: "#121212",
     screenOrientation: "landscape",
-    hideLogs: false
+    hideLogs: true
   },
   ios: {
     backgroundColor: "#121212",
